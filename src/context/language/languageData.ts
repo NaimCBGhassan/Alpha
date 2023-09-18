@@ -5,6 +5,11 @@ export interface Language {
     about: string;
     contact: string;
   };
+  home: {
+    title: string;
+    subTitle1: string;
+    subTitle2: string;
+  };
 }
 
 export type LanguageData = {
@@ -19,6 +24,11 @@ const languageData: LanguageData = {
       about: "Nosotros",
       contact: "Contacto",
     },
+    home: {
+      title: "Soluciones Logísticas",
+      subTitle1: "Comercio Internacional",
+      subTitle2: "Financiación",
+    },
   },
   en: {
     header: {
@@ -26,6 +36,11 @@ const languageData: LanguageData = {
       services: "Services",
       about: "About",
       contact: "Contact",
+    },
+    home: {
+      title: "Logistics Solutions",
+      subTitle1: "International Trade",
+      subTitle2: "Financing",
     },
   },
 };

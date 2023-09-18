@@ -1,12 +1,15 @@
 // import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
-import { SiGmail, SiLinkedin, SiWhatsapp, SiGithub } from "react-icons/si";
+import { SiGmail, SiLinkedin, SiWhatsapp } from "react-icons/si";
 
 import useScroll, { type PlaceScrollInViewport } from "../../hooks/useScroll";
 import { headerHeight } from "../../utils/config";
 import { EnabledLanguages } from "../../context/language/LanguageProvider";
 import { useLanguageContext } from "../../context/language/useLanguage";
 import { useMediaQuery } from "react-responsive";
+import fontSize from "../../utils/font/font";
+import LanguageSelector from "./LanguageSelector";
+import MenuMobile from "./MenuMobile";
 
 interface Props {
   onChangeMode(): void;
@@ -20,9 +23,13 @@ const Header = ({ language, setLanguage }: Props) => {
   const text = useLanguageContext();
   return (
     <StyledHeader className="header" $placeOnThePage={placeOnThePage}>
+      {/*** LOGO ***/}
       <a href="#home">
-        <img src="/src/assets/WhiteLogo.png" height="58px" />
+        <img src="/src/assets/WhiteLogo.png" height="50px" width="195px" />
       </a>
+      {/*** LOGO ***/}
+
+      {/*** DESKTOP NAVIGATION ***/}
       {!isTabletOrMobile && (
         <Nav>
           <a href="#services">{text.header.services}</a>
@@ -30,14 +37,22 @@ const Header = ({ language, setLanguage }: Props) => {
           <a href="#contact">{text.header.contact}</a>
         </Nav>
       )}
-      <MediaContainer>
-        <button onClick={() => (language === "es" ? setLanguage("en") : setLanguage("es"))}>{language}</button>
-        {CardInfo.map((info, index) => (
-          <a key={index} href={info.contact} target="_blank " rel="noopener noreferrer">
-            <p>{info.icon}</p>
-          </a>
-        ))}
-      </MediaContainer>
+      {/*** DESKTOP NAVIGATION ***/}
+      {/*** DESKTOP MEDIA ***/}
+      {!isTabletOrMobile && (
+        <MediaContainer>
+          <LanguageSelector language={language} setLanguage={setLanguage} />
+          {CardInfo.map((info, index) => (
+            <a key={index} href={info.contact} target="_blank " rel="noopener noreferrer">
+              {info.icon}
+            </a>
+          ))}
+        </MediaContainer>
+      )}
+      {/*** DESKTOP MEDIA ***/}
+      {/*** MENU MOBILE ***/}
+      {isTabletOrMobile && <MenuMobile />}
+      {/*** MENU MOBILE ***/}
     </StyledHeader>
   );
 };
@@ -45,7 +60,7 @@ const Header = ({ language, setLanguage }: Props) => {
 export default Header;
 
 const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
-  height: ${headerHeight.inVh}vh;
+  height: ${headerHeight.desktop.inVh}vh;
   color: ${({ theme }) => theme.palette.common.white};
   font-weight: bold;
   font-size: 1.4rem;
@@ -71,6 +86,10 @@ const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
     align-items: center;
     height: 100%;
   }
+  a {
+    display: grid;
+    align-content: center;
+  }
   @media screen and (min-width: 768px) {
     position: sticky;
     top: 0;
@@ -82,7 +101,10 @@ const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
 `;
 
 const Nav = styled.nav`
+  font-size: ${fontSize.desktop.h4};
+  width: 45%;
   display: flex;
+  justify-content: end;
   align-items: center;
   height: 100%;
   gap: 1.8rem;
@@ -92,10 +114,10 @@ const MediaContainer = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
-  gap: 0.5rem;
+  gap: 0.8rem;
 `;
 
-const size = "1.4rem";
+const size = "1.5rem";
 
 const CardInfo = [
   {
@@ -114,10 +136,5 @@ const CardInfo = [
     contact:
       "https://api.whatsapp.com/send?phone=543413227984&text=Hi!%20I%20visit%20you%20from%20your%20personal%20porfolio",
     icon: <SiWhatsapp size={size} />,
-  },
-  {
-    name: "GitHub",
-    contact: "https://github.com/NaimCBGhassan",
-    icon: <SiGithub size={size} />,
   },
 ];

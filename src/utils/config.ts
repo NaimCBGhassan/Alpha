@@ -1,4 +1,10 @@
 export const headerHeight = {
-  inVh: 12,
-  inProportion: 0.08,
+  mobile: {
+    inVh: 6,
+    inProportion: 0.06,
+  },
+  desktop: {
+    inVh: 12,
+    inProportion: 0.12,
+  },
 };
