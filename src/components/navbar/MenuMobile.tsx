@@ -3,31 +3,31 @@ import MenuHamburgesa from "../../assets/MenuHamburguesa";
 import styled from "styled-components";
 import { headerHeight } from "../../utils/config";
 import { useLanguageContext } from "../../context/language/useLanguage";
+import MenuCruz from "../../assets/MenuCruz";
 
 const MenuMobile = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const text = useLanguageContext();
   return (
-    <MenuMobileContainer
-      className={!isActive ? "menuMobileInactive" : undefined}
-      onClick={() => setIsActive(!isActive)}
-    >
-      <MenuHamburgesa />
-      {isActive && (
-        <Menu>
-          <Enlaces href="#home">{text.header.home}</Enlaces>
-          <Enlaces href="#services">{text.header.services}</Enlaces>
-          <Enlaces href="#about">{text.header.about}</Enlaces>
-          <Enlaces href="#contact">{text.header.contact}</Enlaces>
-        </Menu>
-      )}
+    <MenuMobileContainer onClick={() => setIsActive(!isActive)}>
+      <MenuHamburgesa isActive={isActive} />
+      <MenuCruz isActive={isActive} />
+
+      <Menu className={isActive ? "menuMobileActive" : undefined}>
+        <Enlaces href="#home">{text.header.home}</Enlaces>
+        <Enlaces href="#services">{text.header.services}</Enlaces>
+        <Enlaces href="#about">{text.header.about}</Enlaces>
+        <Enlaces href="#contact">{text.header.contact}</Enlaces>
+      </Menu>
     </MenuMobileContainer>
   );
 };
 
 export default MenuMobile;
 
-const MenuMobileContainer = styled.div``;
+const MenuMobileContainer = styled.div`
+  padding-right: 2.5rem;
+`;
 
 const Menu = styled.nav`
   color: ${({ theme }) => theme.palette.secondary.main};
@@ -37,11 +37,13 @@ const Menu = styled.nav`
   left: 0;
   bottom: ${headerHeight.desktop.inVh}vh;
 
-  transition: bottom 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  transform: scaleY(0);
+  transform-origin: 0% 100%;
 
-  &.menuMobileInactive {
-    bottom: -500px;
-    opacity: 0;
+  transition: transform 0.5s ease-in-out;
+
+  &.menuMobileActive {
+    transform: scaleY(100%);
   }
 `;
 
