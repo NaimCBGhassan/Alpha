@@ -49,7 +49,7 @@ const StyledHome = styled.section`
   flex-direction: column;
   align-items: center;
 
-  background-image: url("/src/assets/heroImage.jpg");
+  background-image: url("heroImage.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

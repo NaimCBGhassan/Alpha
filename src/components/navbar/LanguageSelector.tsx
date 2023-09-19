@@ -84,10 +84,10 @@ interface Option {
 const options: Option[] = [
   {
     language: "es",
-    path: "/uy.png",
+    path: "uy.png",
   },
   {
     language: "en",
-    path: "/eeuu.webp",
+    path: "eeuu.webp",
   },
 ];

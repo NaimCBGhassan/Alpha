@@ -25,7 +25,7 @@ const Header = ({ language, setLanguage }: Props) => {
     <StyledHeader className="header" $placeOnThePage={placeOnThePage}>
       {/*** LOGO ***/}
       <a href="#home">
-        <img src="/src/assets/WhiteLogo.png" height="50px" width="195px" />
+        <img src="WhiteLogo.png" height="50px" width="195px" />
       </a>
       {/*** LOGO ***/}
 
