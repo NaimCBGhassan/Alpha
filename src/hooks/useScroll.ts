@@ -16,14 +16,14 @@ const suscribe = (callback: () => void) => {
 
 const getSnapshot = (): number => {
   const placeOfScrollInViewport = window.scrollY / document.body.clientHeight;
-  const isInTopOfSection: boolean = (window.scrollY / window.innerHeight) % 1 < headerHeight.desktop.inProportion * 2;
+  const isInTopOfSection: boolean = (window.scrollY / window.innerHeight) % 1 <= headerHeight.desktop.inProportion;
 
-  if (placeOfScrollInViewport < 0.25 && isInTopOfSection) return 1;
-  if (placeOfScrollInViewport < 0.25) return 2;
-  if (placeOfScrollInViewport < 0.5 && isInTopOfSection) return 3;
-  if (placeOfScrollInViewport < 0.5) return 4;
-  if (placeOfScrollInViewport < 0.75 && isInTopOfSection) return 5;
-  if (placeOfScrollInViewport < 0.75) return 6;
+  if (placeOfScrollInViewport < 0.24 && isInTopOfSection) return 1;
+  if (placeOfScrollInViewport < 0.24) return 2;
+  if (placeOfScrollInViewport < 0.48 && isInTopOfSection) return 3;
+  if (placeOfScrollInViewport < 0.48) return 4;
+  if (placeOfScrollInViewport < 0.72 && isInTopOfSection) return 5;
+  if (placeOfScrollInViewport < 0.72) return 6;
   if (placeOfScrollInViewport < 1 && isInTopOfSection) return 7;
   if (placeOfScrollInViewport <= 1) return 8;
   return 1;
