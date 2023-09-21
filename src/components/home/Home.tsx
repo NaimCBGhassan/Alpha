@@ -49,6 +49,8 @@ const StyledHome = styled.section`
   flex-direction: column;
   align-items: center;
 
+  padding-bottom: 0 !important;
+
   background-image: url("heroImage.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -58,6 +60,7 @@ const StyledHome = styled.section`
   @media screen and (min-width: 768px) {
     flex-direction: row;
     align-items: stretch;
+    padding-right: 0 !important;
   }
 `;
 
@@ -66,7 +69,7 @@ const Title = styled.h1`
   color: ${({ theme }) => theme.palette.secondary.contrastText};
   height: 15rem;
   line-height: 3rem;
-  padding: 2rem 0 0rem 0;
+  padding: 2rem 0 0 0;
 
   @media screen and (min-width: 768px) {
     font-size: ${fontSize.desktop.h1};
@@ -93,7 +96,7 @@ const SubtitleContainer = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    padding-top: 17rem;
+    padding-top: 14rem;
     width: 42%;
     min-width: 450px;
 
