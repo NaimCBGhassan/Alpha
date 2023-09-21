@@ -25,7 +25,11 @@ const Header = ({ language, setLanguage }: Props) => {
     <StyledHeader className="header" $placeOnThePage={placeOnThePage}>
       {/*** LOGO ***/}
       <a href="#home">
-        <img src="whitelogo-whit-text.png" height="50px" width="195px" />
+        <img
+          src={placeOnThePage.general === 3 ? "bluelogo-with-text.png" : "whitelogo-with-text.png"}
+          height="50px"
+          width="195px"
+        />
       </a>
       {/*** LOGO ***/}
 
@@ -61,7 +65,9 @@ export default Header;
 
 const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
   height: ${headerHeight.desktop.inVh}vh;
-  color: ${({ theme }) => theme.palette.common.white};
+  color: ${({ theme, $placeOnThePage }) => {
+    return $placeOnThePage.general === 3 ? theme.palette.primary.contrastText : theme.palette.common.white;
+  }};
   font-weight: bold;
   font-size: 1.4rem;
   background-color: ${({ theme }) => {

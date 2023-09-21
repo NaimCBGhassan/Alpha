@@ -15,6 +15,7 @@ declare module "styled-components" {
       secondary: IPalette;
       tertiary: IPalette;
       quaternary: IPalette;
+      degraded: IPalette;
     };
   }
 }

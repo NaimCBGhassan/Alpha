@@ -5,6 +5,7 @@ import { headerHeight } from "../utils/config";
 export interface PlaceScrollInViewport {
   place: 1 | 2 | 3 | 4;
   background: "primary" | "secondary" | null;
+  general: number;
 }
 
 const suscribe = (callback: () => void) => {
@@ -32,16 +33,16 @@ const getSnapshot = (): number => {
 const useScroll = () => {
   const a = useSyncExternalStore<number>(suscribe, getSnapshot);
 
-  let b: PlaceScrollInViewport = { background: null, place: 1 };
+  let b: PlaceScrollInViewport = { background: null, place: 1, general: 1 };
 
-  if (a === 1) b = { background: null, place: 1 };
-  if (a === 2) b = { background: "secondary", place: 1 };
-  if (a === 3) b = { background: "secondary", place: 2 }; // Este
-  if (a === 4) b = { background: "secondary", place: 2 };
-  if (a === 5) b = { background: "secondary", place: 3 }; // Este
-  if (a === 6) b = { background: "primary", place: 3 };
-  if (a === 7) b = { background: "secondary", place: 4 }; // Este
-  if (a === 8) b = { background: "secondary", place: 4 };
+  if (a === 1) b = { background: null, place: 1, general: 1 };
+  if (a === 2) b = { background: "secondary", place: 1, general: 2 };
+  if (a === 3) b = { background: null, place: 2, general: 3 };
+  if (a === 4) b = { background: "secondary", place: 2, general: 4 };
+  if (a === 5) b = { background: null, place: 3, general: 5 };
+  if (a === 6) b = { background: "primary", place: 3, general: 6 };
+  if (a === 7) b = { background: null, place: 4, general: 7 };
+  if (a === 8) b = { background: "secondary", place: 4, general: 8 };
 
   return b;
 };

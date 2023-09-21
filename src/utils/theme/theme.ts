@@ -12,6 +12,10 @@ const lightTheme: DefaultTheme = {
     secondary: { main: "#252440", contrastText: "#ffffff" },
     tertiary: { main: "#1a3c9080", contrastText: "#252440" },
     quaternary: { main: "#cba500", contrastText: "#d9d9d9" },
+    degraded: {
+      main: "linear-gradient(to bottom, #c2c0c8, #252440)",
+      contrastText: "linear-gradient(to top, #c2c0c8, #252440)",
+    },
   },
 };
 
@@ -25,6 +29,10 @@ const darkTheme: DefaultTheme = {
     secondary: { main: "#252440", contrastText: "#ffffff" },
     tertiary: { main: "#1a3c9080", contrastText: "#252440" },
     quaternary: { main: "#cba500", contrastText: "#d9d9d9" },
+    degraded: {
+      main: "linear-gradient(to bottom, #c2c0c8, #252440)",
+      contrastText: "linear-gradient(to top, #c2c0c8, #252440)",
+    },
   },
 }; // If the enterprise decide use dark and light mode here is is the config
 
