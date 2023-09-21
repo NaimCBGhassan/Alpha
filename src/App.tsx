@@ -48,13 +48,11 @@ const DefaultStyles = styled.main`
 
   & > *:not(header) {
     height: 100vh;
-    padding: 0 5vh;
-    padding-top: 5vh;
+    padding: ${headerHeight.mobile.inVh}vh 12vw;
     top: -${() => 1 * headerHeight.mobile.inVh}vh;
 
     @media screen and (min-width: 768px) {
-      padding-left: 12vw;
-      padding-right: 0;
+      padding-top: ${headerHeight.desktop.inVh}vh;
       position: relative;
       top: -${() => 1.3 * headerHeight.desktop.inVh}vh;
     }
