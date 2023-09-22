@@ -1,12 +1,12 @@
 import styled from "styled-components";
+import { useMediaQuery } from "react-responsive";
+
 import CarouselDesktop from "./CarouselDesktop";
+import CarouselMobile from "./CarouselMobile";
 
 const Services = () => {
-  return (
-    <StyledServices id="services">
-      <CarouselDesktop />
-    </StyledServices>
-  );
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  return <StyledServices id="services">{isTabletOrMobile ? <CarouselMobile /> : <CarouselDesktop />}</StyledServices>;
 };
 
 export default Services;
