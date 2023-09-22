@@ -21,7 +21,7 @@ const fontSize = {
     h3: "2.8vw",
     h4: "2.5vw",
     p1: "1.8vw",
-    p2: "1rem",
+    p2: "1.6vw",
   },
 };
 

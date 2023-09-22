@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { SiGmail, SiLinkedin } from "react-icons/si";
 import Form from "./Form";
 import { useLanguageContext } from "../../context/language/useLanguage";
+import fontSize from "../../utils/font/font";
 
 const Contact = () => {
   const text = useLanguageContext();
@@ -47,13 +48,18 @@ const StyledContact = styled.section`
 
 const InfoContainer = styled.div`
   height: 100%;
+  color: ${({ theme }) => theme.palette.common.white};
+  text-align: center;
+  margin-bottom: 2rem;
 
   display: flex;
   flex-direction: column;
   justify-content: end;
-  gap: 2rem;
+  gap: 1rem;
 
   @media screen and (min-width: 768px) {
+    color: inherit;
+    gap: 2rem;
   }
 `;
 
@@ -61,18 +67,33 @@ const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
   h4 {
-    font-size: 1.8vw;
+    font-size: ${fontSize.mobile.p1};
   }
   p {
-    font-size: 1.4vw;
+    font-size: ${fontSize.mobile.p2};
   }
 
   @media screen and (min-width: 768px) {
+    h4 {
+      font-size: ${fontSize.tablet.p1};
+    }
+    p {
+      font-size: ${fontSize.tablet.p2};
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    h4 {
+      font-size: ${fontSize.desktop.p1};
+    }
+    p {
+      font-size: ${fontSize.desktop.p2};
+    }
   }
 `;
 
 const Icons = styled.div`
   display: flex;
+  justify-content: center;
   gap: 1.5rem;
 `;
 
