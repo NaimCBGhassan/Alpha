@@ -68,17 +68,21 @@ const Title = styled.h1`
   font-size: ${fontSize.mobile.h1};
   color: ${({ theme }) => theme.palette.secondary.contrastText};
   height: 15rem;
-  line-height: 3rem;
+  line-height: 13vw;
   padding: 2rem 0 0 0;
 
   @media screen and (min-width: 768px) {
-    font-size: ${fontSize.desktop.h1};
+    font-size: ${fontSize.tablet.h1};
     text-align: left;
     line-height: 5rem;
     padding-bottom: 2rem;
     width: 58%;
 
     align-self: end;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: ${fontSize.desktop.h1};
   }
 `;
 
@@ -98,7 +102,7 @@ const SubtitleContainer = styled.div`
   @media screen and (min-width: 768px) {
     padding-top: 14rem;
     width: 42%;
-    min-width: 450px;
+    min-width: 350px;
 
     div {
       height: 80px;
@@ -112,8 +116,12 @@ const Subtitle = styled.h3`
   text-align: left;
 
   @media screen and (min-width: 768px) {
-    font-size: ${fontSize.desktop.h3};
+    font-size: ${fontSize.tablet.h3};
     width: auto;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: ${fontSize.desktop.h3};
   }
 `;
 

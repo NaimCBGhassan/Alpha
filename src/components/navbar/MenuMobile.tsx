@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { headerHeight } from "../../utils/config";
 import { useLanguageContext } from "../../context/language/useLanguage";
 import MenuCruz from "../../assets/MenuCruz";
+import fontSize from "../../utils/font/font";
 
 const MenuMobile = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -26,6 +27,7 @@ const MenuMobile = () => {
 export default MenuMobile;
 
 const MenuMobileContainer = styled.div`
+  font-size: ${fontSize.mobile.h4};
   padding-right: 2.5rem;
 `;
 

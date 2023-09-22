@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import WorldIcon from "../../assets/WorldIcon";
+import fontSize from "../../utils/font/font";
 
 interface Props {
   text: {
@@ -23,9 +24,9 @@ const CardMobile = ({ text }: Props) => {
 export default CardMobile;
 
 const StyledCard = styled.article`
-  height: 50vh;
+  height: 45vh;
   width: 33.333%;
-  min-width: 200px;
+  margin: 0 1.5vw;
   color: ${({ theme }) => theme.palette.primary.contrastText};
   background-color: ${({ theme }) => theme.palette.primary.main};
 
@@ -34,21 +35,22 @@ const StyledCard = styled.article`
   transition: transform 0.5s linear;
 
   p {
-    font-size: 1.6vw;
-    line-height: 2.2vw;
+    font-size: ${fontSize.mobile.p1};
+    line-height: 5vw;
     font-weight: bold;
   }
 `;
 
 const TitleContainer = styled.header`
+  min-height: 100px;
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   h4 {
-    font-size: 2.1vw;
-    line-height: 2.8vw;
+    font-size: ${fontSize.mobile.h4};
+    line-height: 6.5vw;
     width: 70%;
   }
 

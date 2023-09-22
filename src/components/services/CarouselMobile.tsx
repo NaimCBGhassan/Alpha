@@ -52,7 +52,6 @@ const CardContainer = styled.div<{ selected: 1 | 2 | 3 }>`
 
   display: flex;
   align-items: center;
-  gap: 7vw;
 
   transition: transform 0.5s linear;
 

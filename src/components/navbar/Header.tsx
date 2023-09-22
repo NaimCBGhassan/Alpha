@@ -25,11 +25,7 @@ const Header = ({ language, setLanguage }: Props) => {
     <StyledHeader className="header" $placeOnThePage={placeOnThePage}>
       {/*** LOGO ***/}
       <a href="#home">
-        <img
-          src={placeOnThePage.general === 3 ? "bluelogo-with-text.png" : "whitelogo-with-text.png"}
-          height="50px"
-          width="195px"
-        />
+        <Logo src={placeOnThePage.general === 3 ? "bluelogo-with-text.png" : "whitelogo-with-text.png"} />
       </a>
       {/*** LOGO ***/}
 
@@ -69,7 +65,6 @@ const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
     return $placeOnThePage.general === 3 ? theme.palette.primary.contrastText : theme.palette.common.white;
   }};
   font-weight: bold;
-  font-size: 1.4rem;
   background-color: ${({ theme }) => {
     return theme.palette.secondary.main;
   }};
@@ -106,6 +101,13 @@ const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
   }
 `;
 
+const Logo = styled.img`
+  width: 150px;
+  @media screen and (min-width: 768px) {
+    width: 20vw;
+  }
+`;
+
 const Nav = styled.nav`
   font-size: ${fontSize.desktop.h4};
   width: 45%;
@@ -114,6 +116,13 @@ const Nav = styled.nav`
   align-items: center;
   height: 100%;
   gap: 1.8rem;
+
+  @media screen and (min-width: 768px) {
+    font-size: ${fontSize.tablet.h4};
+  }
+  @media screen and (min-width: 1024px) {
+    font-size: ${fontSize.desktop.h4};
+  }
 `;
 
 const MediaContainer = styled.div`

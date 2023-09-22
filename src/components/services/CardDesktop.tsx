@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import WorldIcon from "../../assets/WorldIcon";
+import fontSize from "../../utils/font/font";
 
 interface Props {
   className: string;
@@ -70,9 +71,14 @@ const StyledCard = styled.article<{ selected: Props["selected"] }>`
   }
 
   p {
-    font-size: 1.6vw;
+    font-size: ${fontSize.desktop.p1};
     line-height: 2.2vw;
     font-weight: bold;
+
+    @media screen and (min-width: 768px) {
+      font-size: ${fontSize.tablet.p1};
+      line-height: 2.2vw;
+    }
   }
 `;
 
@@ -83,7 +89,7 @@ const TitleContainer = styled.header`
   margin-bottom: 2rem;
 
   h4 {
-    font-size: 2.1vw;
+    font-size: ${fontSize.desktop.h4};
     line-height: 2.8vw;
     width: 70%;
   }

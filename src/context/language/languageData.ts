@@ -24,6 +24,20 @@ export interface Language {
       content: string;
     };
   };
+  contact: {
+    contactInfo: {
+      title: string;
+      content: string[];
+    }[];
+    form: {
+      title: string;
+      name: string;
+      enterprise: string;
+      email: string;
+      area: string;
+      message: string;
+    };
+  };
 }
 
 export type LanguageData = {
@@ -57,6 +71,26 @@ const languageData: LanguageData = {
         content: "Gestionamos cuentas con tus proveedores dando soporte financier.",
       },
     },
+    contact: {
+      contactInfo: [
+        {
+          title: "Horario de atención",
+          content: ["Lunes a viernes de 8hs a 18hs"],
+        },
+        {
+          title: "Teléfono/Email",
+          content: ["+59892125764", "info@handel.com"],
+        },
+      ],
+      form: {
+        title: "Hacé tu consulta",
+        name: "Nombre y Apellido",
+        enterprise: "Empresa(Opcional)",
+        email: "Email",
+        area: "Area",
+        message: "Tu Mensaje",
+      },
+    },
   },
   en: {
     header: {
@@ -82,6 +116,26 @@ const languageData: LanguageData = {
       card3: {
         title: "Financing Services",
         content: "We manage accounts with your suppliers providing financial support",
+      },
+    },
+    contact: {
+      contactInfo: [
+        {
+          title: "Open hours",
+          content: ["Monday to Friday from 8am to 6pm"],
+        },
+        {
+          title: "Phone/Email",
+          content: ["+59892125764", "info@handel.com"],
+        },
+      ],
+      form: {
+        title: "Make your inquiry",
+        name: "First and Last Name",
+        enterprise: "Enterprise(Optional)",
+        email: "Email",
+        area: "Area",
+        message: "Your Message",
       },
     },
   },
