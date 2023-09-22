@@ -41,7 +41,7 @@ const StyledForm = styled.form`
   padding: 2.5rem;
 
   @media screen and (min-width: 768px) {
-    width: 50%;
+    width: 60%;
   }
 `;
 
