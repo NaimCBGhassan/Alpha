@@ -17,14 +17,17 @@ const suscribe = (callback: () => void) => {
 
 const getSnapshot = (): number => {
   const placeOfScrollInViewport = window.scrollY / document.body.clientHeight;
-  const isInTopOfSection: boolean = (window.scrollY / window.innerHeight) % 1 <= headerHeight.desktop.inProportion;
+  const isInTopOfFirstSection: boolean =
+    (window.scrollY / window.innerHeight) % 1 <= 0.5 * headerHeight.desktop.inProportion;
+  const isInTopOfSection: boolean =
+    (window.scrollY / window.innerHeight) % 1 <= 0.5 * headerHeight.desktop.inProportion;
 
-  if (placeOfScrollInViewport < 0.24 && isInTopOfSection) return 1;
-  if (placeOfScrollInViewport < 0.24) return 2;
-  if (placeOfScrollInViewport < 0.48 && isInTopOfSection) return 3;
-  if (placeOfScrollInViewport < 0.48) return 4;
-  if (placeOfScrollInViewport < 0.72 && isInTopOfSection) return 5;
-  if (placeOfScrollInViewport < 0.72) return 6;
+  if (placeOfScrollInViewport < 0.25 && isInTopOfFirstSection) return 1;
+  if (placeOfScrollInViewport < 0.25) return 2;
+  if (placeOfScrollInViewport < 0.5 && isInTopOfSection) return 3;
+  if (placeOfScrollInViewport < 0.5) return 4;
+  if (placeOfScrollInViewport < 0.75 && isInTopOfSection) return 5;
+  if (placeOfScrollInViewport < 0.75) return 6;
   if (placeOfScrollInViewport < 1 && isInTopOfSection) return 7;
   if (placeOfScrollInViewport <= 1) return 8;
   return 1;
@@ -40,7 +43,7 @@ const useScroll = () => {
   if (a === 3) b = { background: null, place: 2, general: 3 };
   if (a === 4) b = { background: "secondary", place: 2, general: 4 };
   if (a === 5) b = { background: null, place: 3, general: 5 };
-  if (a === 6) b = { background: "primary", place: 3, general: 6 };
+  if (a === 6) b = { background: "secondary", place: 3, general: 6 };
   if (a === 7) b = { background: null, place: 4, general: 7 };
   if (a === 8) b = { background: "secondary", place: 4, general: 8 };
 

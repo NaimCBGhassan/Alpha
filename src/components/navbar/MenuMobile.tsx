@@ -37,7 +37,7 @@ const Menu = styled.nav`
   position: absolute;
   right: 0;
   left: 0;
-  bottom: ${headerHeight.desktop.inVh}vh;
+  bottom: ${headerHeight.mobile.inVh}vh;
 
   transform: scaleY(0);
   transform-origin: 0% 100%;

@@ -25,7 +25,9 @@ const Header = ({ language, setLanguage }: Props) => {
     <StyledHeader className="header" $placeOnThePage={placeOnThePage}>
       {/*** LOGO ***/}
       <a href="#home">
-        <Logo src={placeOnThePage.general === 3 ? "bluelogo-with-text.png" : "whitelogo-with-text.png"} />
+        <Logo
+          src={placeOnThePage.general === 3 && !isTabletOrMobile ? "bluelogo-with-text.png" : "whitelogo-with-text.png"}
+        />
       </a>
       {/*** LOGO ***/}
 
@@ -60,10 +62,9 @@ const Header = ({ language, setLanguage }: Props) => {
 export default Header;
 
 const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
-  height: ${headerHeight.desktop.inVh}vh;
-  color: ${({ theme, $placeOnThePage }) => {
-    return $placeOnThePage.general === 3 ? theme.palette.primary.contrastText : theme.palette.common.white;
-  }};
+  min-height: ${headerHeight.mobile.inVh}vh;
+  color: ${({ theme }) => theme.palette.common.white};
+
   font-weight: bold;
   background-color: ${({ theme }) => {
     return theme.palette.secondary.main;
@@ -92,12 +93,16 @@ const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
     align-content: center;
   }
   @media screen and (min-width: 768px) {
-    position: sticky;
-    top: 0;
-    z-index: ${({ $placeOnThePage }) => 9 + 10 * ($placeOnThePage.place - 1)};
+    height: ${headerHeight.desktop.inVh}vh;
+    color: ${({ theme, $placeOnThePage }) => {
+      return $placeOnThePage.general === 3 ? theme.palette.primary.contrastText : theme.palette.common.white;
+    }};
     background-color: ${({ $placeOnThePage, theme }) => {
       return $placeOnThePage.background ? theme.palette[$placeOnThePage.background].main : "transparent";
     }};
+    position: ${({ $placeOnThePage }) => ($placeOnThePage.general === 1 ? "absolute" : "fixed")};
+    top: ${({ $placeOnThePage }) => ($placeOnThePage.general === 1 ? 0.5 * headerHeight.desktop.inVh + "vh" : "0")};
+    z-index: ${({ $placeOnThePage }) => 9 + 10 * ($placeOnThePage.place - 1)};
   }
 `;
 
