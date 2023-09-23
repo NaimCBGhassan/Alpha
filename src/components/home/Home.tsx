@@ -6,6 +6,7 @@ import { useLanguageContext } from "../../context/language/useLanguage";
 import WorldIcon from "../../assets/WorldIcon";
 import FinancingIcon from "../../assets/FinancingIcon";
 import { useMediaQuery } from "react-responsive";
+import { headerHeight } from "../../utils/config";
 
 const Home = () => {
   const text = useLanguageContext();
@@ -49,7 +50,9 @@ const StyledHome = styled.section`
   flex-direction: column;
   align-items: center;
 
-  padding-bottom: 0 !important;
+  &#home {
+    padding-bottom: ${headerHeight.mobile.inVh}vh;
+  }
 
   background-image: url("heroImage.jpg");
   background-repeat: no-repeat;
@@ -60,7 +63,10 @@ const StyledHome = styled.section`
   @media screen and (min-width: 768px) {
     flex-direction: row;
     align-items: stretch;
-    padding-right: 0 !important;
+    &#home {
+      padding-right: 0;
+      padding-bottom: 0;
+    }
   }
 `;
 
@@ -76,7 +82,7 @@ const Title = styled.h1`
     text-align: left;
     line-height: 5rem;
     padding-bottom: 2rem;
-    width: 58%;
+    width: 50%;
 
     align-self: end;
   }
@@ -101,8 +107,7 @@ const SubtitleContainer = styled.div`
 
   @media screen and (min-width: 768px) {
     padding-top: 14rem;
-    width: 42%;
-    min-width: 350px;
+    width: 50%;
 
     div {
       height: 80px;
