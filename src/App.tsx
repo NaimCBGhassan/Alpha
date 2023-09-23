@@ -8,20 +8,17 @@ import "./App.css";
 import { About, Contact, Header, Home, Services } from "./components/index.ts";
 import { headerHeight } from "./utils/config.ts";
 import { EnabledLanguages, LaguageProvider } from "./context/language/LanguageProvider.tsx";
-import { useMediaQuery } from "react-responsive";
 
 const initialState: ThemeModes = { isLight: true };
 
 function App() {
   const [theme, setTheme] = useState<ThemeModes>(initialState);
   const [language, setLanguage] = useState<EnabledLanguages>("es");
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
   return (
     <>
       <ThemeProvider theme={themeConfigs.custom(theme)}>
         <LaguageProvider language={language}>
           <>
-            {!isTabletOrMobile && <div style={{ height: 0.3 * headerHeight.desktop.inVh + "vh" }}></div>}
             <DefaultStyles>
               <Header
                 onChangeMode={() => setTheme({ isLight: !theme.isLight })}
@@ -47,13 +44,13 @@ const DefaultStyles = styled.main`
   background-color: ${(props) => props.theme.palette.primary.main};
 
   & > *:not(header) {
-    height: 100vh;
-    padding: ${headerHeight.mobile.inVh}vh 12vw;
+    min-height: 100vh;
+    padding: ${headerHeight.mobile.inVh}vh 8vw;
 
     @media screen and (min-width: 768px) {
+      height: 100vh;
       padding-top: ${headerHeight.desktop.inVh}vh;
       position: relative;
-      top: -${() => 1.3 * headerHeight.desktop.inVh}vh;
     }
   }
 `;
