@@ -3,6 +3,7 @@ import { SiGmail, SiLinkedin } from "react-icons/si";
 import Form from "./Form";
 import { useLanguageContext } from "../../context/language/useLanguage";
 import fontSize from "../../utils/font/font";
+import { headerHeight } from "../../utils/config";
 
 const Contact = () => {
   const text = useLanguageContext();
@@ -37,12 +38,20 @@ const StyledContact = styled.section`
   background: ${({ theme }) => theme.palette.degraded.contrastText};
   z-index: 30;
 
+  &#contact {
+    padding: 1rem 1rem 5rem 1rem;
+  }
+
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
+    padding: inherit;
+    &#contact {
+      padding: ${headerHeight.desktop.inVh}vh 8vw 4vh 8vw;
+    }
   }
 `;
 
@@ -50,12 +59,12 @@ const InfoContainer = styled.div`
   height: 100%;
   color: ${({ theme }) => theme.palette.common.white};
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   display: flex;
   flex-direction: column;
   justify-content: end;
-  gap: 1rem;
+  gap: 1.5rem;
 
   @media screen and (min-width: 768px) {
     color: inherit;

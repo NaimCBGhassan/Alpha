@@ -38,10 +38,11 @@ const StyledForm = styled.form`
   background-color: ${({ theme }) => theme.palette.tertiary.main};
 
   border-radius: 0.5rem;
-  padding: 2.5rem;
+  padding: 1.5rem;
 
   @media screen and (min-width: 768px) {
     width: 60%;
+    padding: 2.5rem;
   }
 `;
 
