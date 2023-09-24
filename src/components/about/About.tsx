@@ -1,7 +1,10 @@
 import styled from "styled-components";
+import { useMediaQuery } from "react-responsive";
+import AboutMobile from "./AboutMobile";
 
 const About = () => {
-  return <StyledAbout id="about">About</StyledAbout>;
+  const isTabletOrMobile = !useMediaQuery({ query: "(min-width: 768px)" });
+  return <StyledAbout id="about">{isTabletOrMobile ? <AboutMobile /> : null}</StyledAbout>;
 };
 
 export default About;
