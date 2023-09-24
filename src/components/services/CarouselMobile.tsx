@@ -66,12 +66,14 @@ const ArrowContainer = styled.div`
   padding: 1rem 0;
   display: flex;
   gap: 2rem;
-  & > {
-    transition: all 0.2s ease-in-out;
-    z-index: 50;
-    &:hover {
-      fill: #ffffff70;
-      transform: scale(1.08);
-    }
+  transition: transform 5s ease-in-out;
+
+  color: ${({ theme }) => theme.palette.primary.main};
+
+  svg:hover {
+    transform: scale(1.15);
+    color: ${({ theme }) => theme.palette.primary.contrastText};
+
+    cursor: pointer;
   }
 `;
