@@ -17,7 +17,7 @@ const suscribe = (callback: () => void) => {
 const getSnapshot = (): number => {
   const placeOfScrollInViewport = window.scrollY / document.body.clientHeight;
   const isInTopOfFirstSection: boolean = window.scrollY <= defase.inNumber;
-  const isInTopOfSection: boolean = (window.scrollY / window.innerHeight) % 1 <= 0.13;
+  const isInTopOfSection: boolean = (window.scrollY / window.innerHeight) % 1 <= 0.01;
 
   if (placeOfScrollInViewport < 0.25 && isInTopOfFirstSection) return 1;
   if (placeOfScrollInViewport < 0.25) return 2;
