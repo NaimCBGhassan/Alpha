@@ -11,10 +11,10 @@ const CardMobile = ({ icon, title, body, bgImage }: Props) => {
   return (
     <CardContainer $bgImage={bgImage}>
       <div>
-        <HeaderContainer>
+        <Title>
           {icon}
-          <Title>{title}</Title>
-        </HeaderContainer>
+          {title}
+        </Title>
         <BodyContainer>{body}</BodyContainer>
       </div>
     </CardContainer>
@@ -35,21 +35,18 @@ const CardContainer = styled.article<{ $bgImage: string }>`
   }
 `;
 
-const HeaderContainer = styled.header`
+const Title = styled.h3`
+  font-size: var(--fs-h3);
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-
+  margin-right: 0.8rem;
   svg {
     width: clamp(40px, 15%, 60px);
     stroke: ${({ theme }) => theme.palette.primary.main};
     fill: ${({ theme }) => theme.palette.primary.main};
   }
-`;
-
-const Title = styled.h3`
-  font-size: var(--fs-h3);
 `;
 
 const BodyContainer = styled.p`
