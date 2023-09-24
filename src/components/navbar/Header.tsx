@@ -1,13 +1,10 @@
-// import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
 import { SiGmail, SiLinkedin, SiWhatsapp } from "react-icons/si";
 
 import useScroll, { type PlaceScrollInViewport } from "../../hooks/useScroll";
-import { headerHeight } from "../../utils/config";
 import { EnabledLanguages } from "../../context/language/LanguageProvider";
 import { useLanguageContext } from "../../context/language/useLanguage";
 import { useMediaQuery } from "react-responsive";
-import fontSize from "../../utils/font/font";
 import LanguageSelector from "./LanguageSelector";
 import MenuMobile from "./MenuMobile";
 
@@ -18,7 +15,7 @@ interface Props {
 }
 
 const Header = ({ language, setLanguage }: Props) => {
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTabletOrMobile = !useMediaQuery({ query: "(min-width: 768px)" });
   const placeOnThePage = useScroll();
   const text = useLanguageContext();
   return (
@@ -62,7 +59,7 @@ const Header = ({ language, setLanguage }: Props) => {
 export default Header;
 
 const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
-  min-height: ${headerHeight.mobile.inVh}vh;
+  min-height: var(--header-hg-mobile);
   color: ${({ theme }) => theme.palette.common.white};
 
   font-weight: bold;
@@ -93,7 +90,7 @@ const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
     align-content: center;
   }
   @media screen and (min-width: 768px) {
-    height: ${headerHeight.desktop.inVh}vh;
+    height: var(--header-hg-desktop);
     color: ${({ theme, $placeOnThePage }) => {
       return $placeOnThePage.general === 3 ? theme.palette.primary.contrastText : theme.palette.common.white;
     }};
@@ -101,7 +98,7 @@ const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
       return $placeOnThePage.background ? theme.palette[$placeOnThePage.background].main : "transparent";
     }};
     position: ${({ $placeOnThePage }) => ($placeOnThePage.general === 1 ? "absolute" : "fixed")};
-    top: ${({ $placeOnThePage }) => ($placeOnThePage.general === 1 ? 0.5 * headerHeight.desktop.inVh + "vh" : "0")};
+    top: ${({ $placeOnThePage }) => ($placeOnThePage.general === 1 ? "var(--header-defase-desktop)" : "0")};
     z-index: ${({ $placeOnThePage }) => 9 + 10 * ($placeOnThePage.place - 1)};
   }
 `;
@@ -109,25 +106,18 @@ const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
 const Logo = styled.img`
   width: 150px;
   @media screen and (min-width: 768px) {
-    width: 20vw;
+    width: clamp(200px, 16vw, 230px);
   }
 `;
 
 const Nav = styled.nav`
-  font-size: ${fontSize.desktop.h4};
+  font-size: var(--fs-h4);
   width: 45%;
   display: flex;
   justify-content: end;
   align-items: center;
   height: 100%;
   gap: 1.8rem;
-
-  @media screen and (min-width: 768px) {
-    font-size: ${fontSize.tablet.h4};
-  }
-  @media screen and (min-width: 1024px) {
-    font-size: ${fontSize.desktop.h4};
-  }
 `;
 
 const MediaContainer = styled.div`

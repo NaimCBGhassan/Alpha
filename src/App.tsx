@@ -6,8 +6,8 @@ import { type ThemeModes } from "./utils/theme/theme.ts";
 import "./App.css";
 
 import { About, Contact, Header, Home, Services } from "./components/index.ts";
-import { headerHeight } from "./utils/config.ts";
 import { EnabledLanguages, LaguageProvider } from "./context/language/LanguageProvider.tsx";
+import GlobalStyles from "./GlobalStyles.tsx";
 
 const initialState: ThemeModes = { isLight: true };
 
@@ -16,21 +16,20 @@ function App() {
   const [language, setLanguage] = useState<EnabledLanguages>("es");
   return (
     <>
+      <GlobalStyles />
       <ThemeProvider theme={themeConfigs.custom(theme)}>
         <LaguageProvider language={language}>
-          <>
-            <DefaultStyles>
-              <Header
-                onChangeMode={() => setTheme({ isLight: !theme.isLight })}
-                language={language}
-                setLanguage={setLanguage}
-              />
-              <Home />
-              <Services />
-              <About />
-              <Contact />
-            </DefaultStyles>
-          </>
+          <DefaultStyles>
+            <Header
+              onChangeMode={() => setTheme({ isLight: !theme.isLight })}
+              language={language}
+              setLanguage={setLanguage}
+            />
+            <Home />
+            <Services />
+            <About />
+            <Contact />
+          </DefaultStyles>
         </LaguageProvider>
       </ThemeProvider>
     </>
@@ -45,11 +44,11 @@ const DefaultStyles = styled.main`
 
   & > *:not(header) {
     min-height: 100vh;
-    padding: ${headerHeight.mobile.inVh}vh 8vw;
+    padding: var(--header-hg-desktop) 8vw;
 
     @media screen and (min-width: 768px) {
       height: 100vh;
-      padding-top: ${headerHeight.desktop.inVh}vh;
+      padding-top: var(--header-hg-desktop);
       position: relative;
     }
   }

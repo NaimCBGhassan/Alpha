@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import Card from "./CardDesktop";
+import { TfiArrowCircleLeft, TfiArrowCircleRight } from "react-icons/tfi";
 import { useState } from "react";
+
+import Card from "./CardDesktop";
 import { useLanguageContext } from "../../context/language/useLanguage";
 
 const CarouselDesktop = () => {
@@ -26,10 +28,10 @@ const CarouselDesktop = () => {
         <Card className={`${getClassName(2, selected)} element_2`} text={text.services.card2} selected={selected} />
         <Card className={`${getClassName(3, selected)} element_3`} text={text.services.card3} selected={selected} />
       </CardContainer>
-      <ButtonContainer>
-        <button onClick={handlerDecrement}>{"<"}</button>
-        <button onClick={handlerIncrement}>{">"}</button>
-      </ButtonContainer>
+      <ArrowContainer>
+        <TfiArrowCircleLeft size={50} onClick={() => handlerDecrement()} />
+        <TfiArrowCircleRight size={50} onClick={() => handlerIncrement()} />
+      </ArrowContainer>
     </StyledCarouselDesktop>
   );
 };
@@ -38,28 +40,20 @@ export default CarouselDesktop;
 
 const StyledCarouselDesktop = styled.div``;
 
-const ButtonContainer = styled.div`
+const ArrowContainer = styled.div`
   margin-top: 3rem;
   display: flex;
   justify-content: center;
   gap: 4rem;
+  transition: transform 5s ease-in-out;
 
-  button {
-    height: 70px;
-    width: 70px;
-    font-size: 40px;
+  color: ${({ theme }) => theme.palette.primary.main};
 
-    border: solid 1px;
-    border-radius: 100%;
+  svg:hover {
+    transform: scale(1.3);
+    color: ${({ theme }) => theme.palette.primary.contrastText};
 
-    color: ${({ theme }) => theme.palette.primary.main};
-    background-color: transparent;
-
-    &:hover {
-      transform: scale(1.05);
-      font-weight: bold;
-      border: solid 2px;
-    }
+    cursor: pointer;
   }
 `;
 

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import WorldIcon from "../../assets/WorldIcon";
-import fontSize from "../../utils/font/font";
 
 interface Props {
   className: string;
@@ -16,7 +15,7 @@ const Card = ({ className, text, selected }: Props) => {
     <StyledCard selected={selected} className={className}>
       <TitleContainer>
         <WorldIcon />
-        <h4>{text.title}</h4>
+        <h5>{text.title}</h5>
       </TitleContainer>
       <p>{text.content}</p>
     </StyledCard>
@@ -71,14 +70,8 @@ const StyledCard = styled.article<{ selected: Props["selected"] }>`
   }
 
   p {
-    font-size: ${fontSize.desktop.p1};
-    line-height: 2.2vw;
+    font-size: var(--fs-p1);
     font-weight: bold;
-
-    @media screen and (min-width: 768px) {
-      font-size: ${fontSize.tablet.p1};
-      line-height: 2.2vw;
-    }
   }
 `;
 
@@ -88,10 +81,10 @@ const TitleContainer = styled.header`
   gap: 1rem;
   margin-bottom: 2rem;
 
-  h4 {
-    font-size: ${fontSize.desktop.h4};
-    line-height: 2.8vw;
-    width: 70%;
+  h5 {
+    font-size: var(--fs-h5);
+    line-height: 1;
+    max-width: 70%;
   }
 
   svg {

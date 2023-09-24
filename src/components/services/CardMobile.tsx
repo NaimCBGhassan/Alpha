@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import WorldIcon from "../../assets/WorldIcon";
-import fontSize from "../../utils/font/font";
 
 interface Props {
   text: {
@@ -35,8 +34,7 @@ const StyledCard = styled.article`
   transition: transform 0.5s linear;
 
   p {
-    font-size: ${fontSize.mobile.p1};
-    line-height: 5vw;
+    font-size: var(--fs-p1);
     font-weight: bold;
   }
 `;
@@ -49,8 +47,7 @@ const TitleContainer = styled.header`
   margin-bottom: 1rem;
 
   h4 {
-    font-size: ${fontSize.mobile.h4};
-    line-height: 6.5vw;
+    font-size: var(--fs-h4);
     width: 70%;
   }
 

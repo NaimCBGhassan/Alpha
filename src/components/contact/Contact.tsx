@@ -2,8 +2,6 @@ import styled from "styled-components";
 import { SiGmail, SiLinkedin } from "react-icons/si";
 import Form from "./Form";
 import { useLanguageContext } from "../../context/language/useLanguage";
-import fontSize from "../../utils/font/font";
-import { headerHeight } from "../../utils/config";
 
 const Contact = () => {
   const text = useLanguageContext();
@@ -50,7 +48,7 @@ const StyledContact = styled.section`
     flex-direction: row;
     padding: inherit;
     &#contact {
-      padding: ${headerHeight.desktop.inVh}vh 8vw 4vh 8vw;
+      padding: var(--header-hg-desktop) 8vw 4vh 8vw;
     }
   }
 `;
@@ -76,27 +74,10 @@ const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
   h4 {
-    font-size: ${fontSize.mobile.p1};
+    font-size: var(--fs-h4);
   }
   p {
-    font-size: ${fontSize.mobile.p2};
-  }
-
-  @media screen and (min-width: 768px) {
-    h4 {
-      font-size: ${fontSize.tablet.p1};
-    }
-    p {
-      font-size: ${fontSize.tablet.p2};
-    }
-  }
-  @media screen and (min-width: 1024px) {
-    h4 {
-      font-size: ${fontSize.desktop.p1};
-    }
-    p {
-      font-size: ${fontSize.desktop.p2};
-    }
+    font-size: var(--fs-p1);
   }
 `;
 

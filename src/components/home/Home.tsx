@@ -1,16 +1,14 @@
 import styled from "styled-components";
 import { SiGmail, SiLinkedin, SiWhatsapp } from "react-icons/si";
 
-import fontSize from "../../utils/font/font";
 import { useLanguageContext } from "../../context/language/useLanguage";
 import WorldIcon from "../../assets/WorldIcon";
 import FinancingIcon from "../../assets/FinancingIcon";
 import { useMediaQuery } from "react-responsive";
-import { headerHeight } from "../../utils/config";
 
 const Home = () => {
   const text = useLanguageContext();
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTabletOrMobile = !useMediaQuery({ query: "(min-width: 768px)" });
 
   return (
     <StyledHome id="home">
@@ -51,7 +49,7 @@ const StyledHome = styled.section`
   align-items: center;
 
   &#home {
-    padding-bottom: ${headerHeight.mobile.inVh}vh;
+    padding-bottom: var(--header-hg-mobile);
   }
 
   background-image: url("heroImage.jpg");
@@ -61,8 +59,8 @@ const StyledHome = styled.section`
   background-attachment: scroll;
 
   @media screen and (min-width: 768px) {
-    flex-direction: row;
-    align-items: stretch;
+    flex-direction: column-reverse;
+
     &#home {
       padding-right: 0;
       padding-bottom: 0;
@@ -71,24 +69,19 @@ const StyledHome = styled.section`
 `;
 
 const Title = styled.h1`
-  font-size: ${fontSize.mobile.h1};
+  font-size: var(--fs-h1);
+  line-height: 1;
   color: ${({ theme }) => theme.palette.secondary.contrastText};
-  height: 15rem;
-  line-height: 13vw;
-  padding: 2rem 0 0 0;
+
+  padding: 10vh 0;
 
   @media screen and (min-width: 768px) {
-    font-size: ${fontSize.tablet.h1};
     text-align: left;
-    line-height: 5rem;
-    padding-bottom: 2rem;
+    margin-bottom: 1rem;
     width: 50%;
-
-    align-self: end;
-  }
-
-  @media screen and (min-width: 1024px) {
-    font-size: ${fontSize.desktop.h1};
+    max-width: 600px;
+    align-self: start;
+    padding: 0;
   }
 `;
 
@@ -106,8 +99,8 @@ const SubtitleContainer = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    padding-top: 14rem;
-    width: 50%;
+    padding: 35vh 2rem 0 0;
+    align-self: end;
 
     div {
       height: 80px;
@@ -117,16 +110,11 @@ const SubtitleContainer = styled.div`
 `;
 
 const Subtitle = styled.h3`
-  font-size: ${fontSize.mobile.h3};
+  font-size: var(--fs-h3);
   text-align: left;
 
   @media screen and (min-width: 768px) {
-    font-size: ${fontSize.tablet.h3};
     width: auto;
-  }
-
-  @media screen and (min-width: 1024px) {
-    font-size: ${fontSize.desktop.h3};
   }
 `;
 

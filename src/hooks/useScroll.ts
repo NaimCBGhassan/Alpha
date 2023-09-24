@@ -1,6 +1,5 @@
 import { useSyncExternalStore } from "react";
-
-import { headerHeight } from "../utils/config";
+import { defase } from "../GlobalStyles";
 
 export interface PlaceScrollInViewport {
   place: 1 | 2 | 3 | 4;
@@ -17,10 +16,8 @@ const suscribe = (callback: () => void) => {
 
 const getSnapshot = (): number => {
   const placeOfScrollInViewport = window.scrollY / document.body.clientHeight;
-  const isInTopOfFirstSection: boolean =
-    (window.scrollY / window.innerHeight) % 1 <= 0.5 * headerHeight.desktop.inProportion;
-  const isInTopOfSection: boolean =
-    (window.scrollY / window.innerHeight) % 1 <= 0.5 * headerHeight.desktop.inProportion;
+  const isInTopOfFirstSection: boolean = window.scrollY <= defase.inNumber;
+  const isInTopOfSection: boolean = (window.scrollY / window.innerHeight) % 1 <= 0.13;
 
   if (placeOfScrollInViewport < 0.25 && isInTopOfFirstSection) return 1;
   if (placeOfScrollInViewport < 0.25) return 2;

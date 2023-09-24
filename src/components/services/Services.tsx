@@ -5,7 +5,7 @@ import CarouselDesktop from "./CarouselDesktop";
 import CarouselMobile from "./CarouselMobile";
 
 const Services = () => {
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+  const isTabletOrMobile = !useMediaQuery({ query: "(min-width: 768px)" });
   return <StyledServices id="services">{isTabletOrMobile ? <CarouselMobile /> : <CarouselDesktop />}</StyledServices>;
 };
 
