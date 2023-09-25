@@ -5,7 +5,7 @@ const ValuesIcon = () => {
         <style
           dangerouslySetInnerHTML={{
             __html:
-              ".cls-1{stroke-dasharray:0 0 9.92 9.92;}.cls-1,.cls-2{fill:none;stroke:#ffffff;stroke-miterlimit:10;stroke-width:8px;}.cls-3{fill:#ffffff;stroke-width:0px;}",
+              ".cls-1{stroke-dasharray:0 0 9.92 9.92;}.cls-1,.cls-2{fill:none;stroke-miterlimit:10;stroke-width:8px;}.cls-3{stroke-width:0px;}",
           }}
         />
       </defs>
