@@ -1,20 +1,20 @@
 import styled from "styled-components";
-import CardMobile from "./CardMobile";
+import CardDesktop from "./CardDesktop";
 import data from "./data";
 
-const AboutMobile = () => {
+const AboutDesktop = () => {
   return (
     <CardContainer>
       {data.map((el, index) => (
-        <CardMobile key={index} icon={el.icon} title={el.title} body={el.body} bgImage={el.bgImage} />
+        <CardDesktop key={index} icon={el.icon} title={el.title} body={el.body} bgImage={el.bgImage} />
       ))}
     </CardContainer>
   );
 };
 
-export default AboutMobile;
+export default AboutDesktop;
 
 const CardContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  height: 100%;
 `;
