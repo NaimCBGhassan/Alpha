@@ -5,11 +5,13 @@ interface Props {
   title: string;
   body: string;
   bgImage: string;
+  index: number;
+  setModal: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const CardDesktop = ({ icon, bgImage }: Props) => {
+const CardDesktop = ({ icon, bgImage, index, setModal }: Props) => {
   return (
-    <Card>
+    <Card onClick={() => setModal(index + 1)}>
       <Image $bgImage={bgImage}>
         <div></div>
       </Image>
@@ -24,9 +26,16 @@ const Card = styled.article`
   display: flex;
   flex-direction: column;
   width: 100%;
+  cursor: pointer;
+
+  transition: transform 0.3s ease-in-out;
 
   &:nth-child(even) {
     flex-direction: column-reverse;
+  }
+
+  &:hover {
+    transform: scale(1.05);
   }
 `;
 

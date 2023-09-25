@@ -2,11 +2,23 @@ import styled from "styled-components";
 import CardDesktop from "./CardDesktop";
 import data from "./data";
 
-const AboutDesktop = () => {
+interface Props {
+  setModal: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const AboutDesktop = ({ setModal }: Props) => {
   return (
-    <CardContainer>
+    <CardContainer onClick={close}>
       {data.map((el, index) => (
-        <CardDesktop key={index} icon={el.icon} title={el.title} body={el.body} bgImage={el.bgImage} />
+        <CardDesktop
+          key={index}
+          icon={el.icon}
+          title={el.title}
+          body={el.body}
+          bgImage={el.bgImage}
+          index={index}
+          setModal={setModal}
+        />
       ))}
     </CardContainer>
   );
