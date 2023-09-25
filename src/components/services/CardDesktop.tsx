@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import WorldIcon from "../../assets/WorldIcon";
 
 interface Props {
   className: string;
@@ -7,14 +6,15 @@ interface Props {
     title: string;
     content: string;
   };
+  imgUrl: string;
   selected: 1 | 2 | 3;
 }
 
-const Card = ({ className, text, selected }: Props) => {
+const Card = ({ className, text, selected, imgUrl }: Props) => {
   return (
     <StyledCard selected={selected} className={className}>
       <TitleContainer>
-        <WorldIcon />
+        <ImageContainer src={imgUrl} />
         <h5>{text.title}</h5>
       </TitleContainer>
       <p>{text.content}</p>
@@ -86,8 +86,8 @@ const TitleContainer = styled.header`
     line-height: 1;
     max-width: 70%;
   }
+`;
 
-  svg {
-    fill: ${({ theme }) => theme.palette.primary.contrastText};
-  }
+const ImageContainer = styled.img`
+  width: 50px;
 `;

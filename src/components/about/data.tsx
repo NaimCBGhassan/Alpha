@@ -1,6 +1,6 @@
-import MisionIcon from "../../assets/MisionIcon";
-import VisionIcon from "../../assets/VisionIcon";
-import ValuesIcon from "../../assets/ValuesIcon";
+import MisionIcon from "../../assets/about/MisionIcon";
+import VisionIcon from "../../assets/about/VisionIcon";
+import ValuesIcon from "../../assets/about/ValuesIcon";
 
 const data = [
   {

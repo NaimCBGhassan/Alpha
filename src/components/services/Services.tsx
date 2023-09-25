@@ -19,4 +19,8 @@ const StyledServices = styled.section`
   align-content: center;
 
   width: 100%;
+
+  &#services {
+    padding-bottom: 0;
+  }
 `;

@@ -1,18 +1,18 @@
 import styled from "styled-components";
-import WorldIcon from "../../assets/WorldIcon";
 
 interface Props {
   text: {
     title: string;
     content: string;
   };
+  imgUrl: string;
 }
 
-const CardMobile = ({ text }: Props) => {
+const CardMobile = ({ text, imgUrl }: Props) => {
   return (
     <StyledCard>
       <TitleContainer>
-        <WorldIcon />
+        <ImageContainer src={imgUrl} />
         <h4>{text.title}</h4>
       </TitleContainer>
       <p>{text.content}</p>
@@ -50,8 +50,8 @@ const TitleContainer = styled.header`
     font-size: var(--fs-h4);
     width: 70%;
   }
+`;
 
-  svg {
-    fill: ${({ theme }) => theme.palette.primary.contrastText};
-  }
+const ImageContainer = styled.img`
+  width: 50px;
 `;

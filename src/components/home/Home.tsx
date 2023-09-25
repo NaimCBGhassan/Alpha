@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { SiGmail, SiLinkedin, SiWhatsapp } from "react-icons/si";
 
 import { useLanguageContext } from "../../context/language/useLanguage";
-import WorldIcon from "../../assets/WorldIcon";
-import FinancingIcon from "../../assets/FinancingIcon";
+import WorldIcon from "../../assets/home/WorldIcon";
+import FinancingIcon from "../../assets/home/FinancingIcon";
 import { useMediaQuery } from "react-responsive";
 
 const Home = () => {
@@ -25,12 +25,16 @@ const Home = () => {
 
       <SubtitleContainer>
         <div>
-          <WorldIcon />
+          <IconContainer>
+            <WorldIcon />
+          </IconContainer>
           <Subtitle>{text.home.subTitle1}</Subtitle>
         </div>
 
         <div>
-          <FinancingIcon />
+          <IconContainer>
+            <FinancingIcon />
+          </IconContainer>
           <Subtitle>{text.home.subTitle2}</Subtitle>
         </div>
       </SubtitleContainer>
@@ -92,10 +96,6 @@ const SubtitleContainer = styled.div`
     justify-content: start;
     align-items: center;
     gap: 1.2rem;
-
-    svg {
-      min-width: 50px;
-    }
   }
 
   @media screen and (min-width: 768px) {
@@ -112,9 +112,13 @@ const SubtitleContainer = styled.div`
 const Subtitle = styled.h3`
   font-size: var(--fs-h3);
   text-align: left;
+`;
 
-  @media screen and (min-width: 768px) {
-    width: auto;
+const IconContainer = styled.div`
+  svg {
+    width: 50px;
+    stroke: ${({ theme }) => theme.palette.common.white};
+    fill: ${({ theme }) => theme.palette.common.white};
   }
 `;
 

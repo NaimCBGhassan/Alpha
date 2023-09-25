@@ -24,9 +24,24 @@ const CarouselDesktop = () => {
   return (
     <StyledCarouselDesktop>
       <CardContainer>
-        <Card className={`${getClassName(1, selected)} element_1`} text={text.services.card1} selected={selected} />
-        <Card className={`${getClassName(2, selected)} element_2`} text={text.services.card2} selected={selected} />
-        <Card className={`${getClassName(3, selected)} element_3`} text={text.services.card3} selected={selected} />
+        <Card
+          className={`${getClassName(1, selected)} element_1`}
+          text={text.services.card1}
+          selected={selected}
+          imgUrl="intermediario.png"
+        />
+        <Card
+          className={`${getClassName(2, selected)} element_2`}
+          text={text.services.card2}
+          selected={selected}
+          imgUrl="logistica.png"
+        />
+        <Card
+          className={`${getClassName(3, selected)} element_3`}
+          text={text.services.card3}
+          selected={selected}
+          imgUrl="financiacion.png"
+        />
       </CardContainer>
       <ArrowContainer>
         <TfiArrowCircleLeft size={50} onClick={() => handlerDecrement()} />

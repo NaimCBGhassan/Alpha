@@ -23,9 +23,9 @@ const CarouselMobile = () => {
   return (
     <StyledCarousel>
       <CardContainer selected={selected}>
-        <CardMobile text={text.services.card1} />
-        <CardMobile text={text.services.card2} />
-        <CardMobile text={text.services.card3} />
+        <CardMobile text={text.services.card1} imgUrl="intermediario.png" />
+        <CardMobile text={text.services.card2} imgUrl="logistica.png" />
+        <CardMobile text={text.services.card3} imgUrl="financiacion.png" />
       </CardContainer>
       <ArrowContainer>
         <TfiArrowCircleLeft size={50} onClick={() => handlerDecrement()} />

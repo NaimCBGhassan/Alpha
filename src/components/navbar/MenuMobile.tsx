@@ -1,8 +1,8 @@
 import { useState } from "react";
-import MenuHamburgesa from "../../assets/MenuHamburguesa";
+import MenuHamburgesa from "../../assets/navbar/MenuHamburguesa";
 import styled from "styled-components";
 import { useLanguageContext } from "../../context/language/useLanguage";
-import MenuCruz from "../../assets/MenuCruz";
+import MenuCruz from "../../assets/navbar/MenuCruz";
 
 const MenuMobile = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
