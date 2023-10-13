@@ -99,7 +99,7 @@ const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
     }};
     position: ${({ $placeOnThePage }) => ($placeOnThePage.general === 1 ? "absolute" : "fixed")};
     top: ${({ $placeOnThePage }) => ($placeOnThePage.general === 1 ? "var(--header-defase-desktop)" : "0")};
-    z-index: ${({ $placeOnThePage }) => 9 + 10 * ($placeOnThePage.place - 1)};
+    z-index: 100;
   }
 `;
 

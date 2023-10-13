@@ -13,7 +13,6 @@ export default Services;
 
 const StyledServices = styled.section`
   background-image: ${({ theme }) => theme.palette.degraded.main};
-  z-index: 10;
   display: grid;
 
   align-content: center;

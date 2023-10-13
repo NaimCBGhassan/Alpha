@@ -12,32 +12,34 @@ const Home = () => {
 
   return (
     <StyledHome id="home">
-      {isTabletOrMobile && (
-        <MediaContainer>
-          {CardInfo.map((info, index) => (
-            <a key={index} href={info.contact} target="_blank " rel="noopener noreferrer">
-              <p>{info.icon}</p>
-            </a>
-          ))}
-        </MediaContainer>
-      )}
-      <Title>{text.home.title}</Title>
+      <Opacity id="home">
+        {isTabletOrMobile && (
+          <MediaContainer>
+            {CardInfo.map((info, index) => (
+              <a key={index} href={info.contact} target="_blank " rel="noopener noreferrer">
+                <p>{info.icon}</p>
+              </a>
+            ))}
+          </MediaContainer>
+        )}
+        <Title>{text.home.title}</Title>
 
-      <SubtitleContainer>
-        <div>
-          <IconContainer>
-            <WorldIcon />
-          </IconContainer>
-          <Subtitle>{text.home.subTitle1}</Subtitle>
-        </div>
+        <SubtitleContainer>
+          <div>
+            <IconContainer>
+              <WorldIcon />
+            </IconContainer>
+            <Subtitle>{text.home.subTitle1}</Subtitle>
+          </div>
 
-        <div>
-          <IconContainer>
-            <FinancingIcon />
-          </IconContainer>
-          <Subtitle>{text.home.subTitle2}</Subtitle>
-        </div>
-      </SubtitleContainer>
+          <div>
+            <IconContainer>
+              <FinancingIcon />
+            </IconContainer>
+            <Subtitle>{text.home.subTitle2}</Subtitle>
+          </div>
+        </SubtitleContainer>
+      </Opacity>
     </StyledHome>
   );
 };
@@ -48,27 +50,35 @@ const StyledHome = styled.section`
   text-align: center;
   color: ${({ theme }) => theme.palette.secondary.contrastText};
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  &#home {
-    padding-bottom: var(--header-hg-mobile);
-  }
-
   background-image: url("heroImage.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: scroll;
+`;
+
+const Opacity = styled.div`
+  background-color: #00000080;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+
+  padding: var(--header-hg-desktop) 8vw;
+  padding-bottom: var(--header-hg-mobile);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media screen and (min-width: 768px) {
     flex-direction: column-reverse;
 
-    &#home {
-      padding-right: 0;
-      padding-bottom: 0;
-    }
+    padding-top: var(--header-hg-desktop);
+    padding-right: 0;
+    padding-bottom: 0;
   }
 `;
 

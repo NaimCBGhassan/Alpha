@@ -25,7 +25,7 @@ const Card = ({ className, text, selected, imgUrl }: Props) => {
 export default Card;
 
 const StyledCard = styled.article<{ selected: Props["selected"] }>`
-  height: 50vh;
+  height: 60vh;
   width: 33.333%;
   min-width: 200px;
   color: ${({ theme }) => theme.palette.primary.contrastText};

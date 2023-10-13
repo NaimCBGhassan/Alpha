@@ -22,9 +22,10 @@ export default About;
 
 const StyledAbout = styled.section<{ $modal: number }>`
   background-color: ${(props) => props.theme.palette.secondary.main};
-  z-index: ${({ $modal }) => ($modal === 0 ? "20" : "60")};
+  z-index: ${({ $modal }) => ($modal === 0 ? "20" : "110")};
   @media screen and (min-width: 768px) {
     &#about {
+      padding-top: 15vh;
       padding-bottom: 0;
     }
   }
