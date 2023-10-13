@@ -22,15 +22,14 @@ const Header = ({ language, setLanguage }: Props) => {
     <StyledHeader className="header" $placeOnThePage={placeOnThePage}>
       {/*** LOGO ***/}
       <a href="#home">
-        <Logo
-          src={placeOnThePage.general === 3 && !isTabletOrMobile ? "bluelogo-with-text.png" : "whitelogo-with-text.png"}
-        />
+        <Logo src="whitelogo-with-text.png" />
       </a>
       {/*** LOGO ***/}
 
       {/*** DESKTOP NAVIGATION ***/}
       {!isTabletOrMobile && (
-        <Nav>
+        <Nav $placeOnThePage={placeOnThePage}>
+          <a href="#home">{text.header.home}</a>
           <a href="#services">{text.header.services}</a>
           <a href="#about">{text.header.about}</a>
           <a href="#contact">{text.header.contact}</a>
@@ -91,9 +90,7 @@ const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
   }
   @media screen and (min-width: 768px) {
     height: var(--header-hg-desktop);
-    color: ${({ theme, $placeOnThePage }) => {
-      return $placeOnThePage.general === 3 ? theme.palette.primary.contrastText : theme.palette.common.white;
-    }};
+    color: ${({ theme }) => theme.palette.common.white};
     background-color: ${({ $placeOnThePage, theme }) => {
       return $placeOnThePage.background ? theme.palette[$placeOnThePage.background].main : "transparent";
     }};
@@ -106,18 +103,67 @@ const StyledHeader = styled.header<{ $placeOnThePage: PlaceScrollInViewport }>`
 const Logo = styled.img`
   width: 150px;
   @media screen and (min-width: 768px) {
-    width: clamp(200px, 16vw, 230px);
+    width: clamp(100px, 10vw, 200px);
   }
 `;
 
-const Nav = styled.nav`
-  font-size: var(--fs-h4);
+const Nav = styled.nav<{ $placeOnThePage: PlaceScrollInViewport }>`
+  font-size: var(--fs-p1);
   width: 45%;
   display: flex;
   justify-content: end;
   align-items: center;
   height: 100%;
-  gap: 1.8rem;
+
+  :nth-child(1) {
+    background-color: ${({ theme, $placeOnThePage }) => {
+      if ($placeOnThePage.general === 1) return theme.palette.primary.contrastText;
+      if ($placeOnThePage.general === 2) return theme.palette.primary.main;
+    }};
+
+    color: ${({ theme, $placeOnThePage }) => {
+      if ($placeOnThePage.general === 2) return theme.palette.primary.contrastText;
+    }};
+  }
+
+  :nth-child(2) {
+    background-color: ${({ theme, $placeOnThePage }) => {
+      if ($placeOnThePage.place === 2) return theme.palette.primary.main;
+    }};
+
+    color: ${({ theme, $placeOnThePage }) => {
+      if ($placeOnThePage.place === 2) return theme.palette.primary.contrastText;
+    }};
+  }
+
+  :nth-child(3) {
+    background-color: ${({ theme, $placeOnThePage }) => {
+      if ($placeOnThePage.place === 3) return theme.palette.primary.main;
+    }};
+
+    color: ${({ theme, $placeOnThePage }) => {
+      if ($placeOnThePage.place === 3) return theme.palette.primary.contrastText;
+    }};
+  }
+
+  :nth-child(4) {
+    background-color: ${({ theme, $placeOnThePage }) => {
+      if ($placeOnThePage.place === 4) return theme.palette.primary.main;
+    }};
+
+    color: ${({ theme, $placeOnThePage }) => {
+      if ($placeOnThePage.place === 4) return theme.palette.primary.contrastText;
+    }};
+  }
+
+  a {
+    padding: 0 1rem;
+    border-radius: 1rem 0 1rem 0;
+  }
+
+  a:hover {
+    transform: scale(1.1);
+  }
 `;
 
 const MediaContainer = styled.div`
@@ -127,7 +173,7 @@ const MediaContainer = styled.div`
   gap: 0.8rem;
 `;
 
-const size = "1.5rem";
+const size = "1.2rem";
 
 const CardInfo = [
   {

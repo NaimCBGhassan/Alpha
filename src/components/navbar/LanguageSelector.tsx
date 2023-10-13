@@ -28,7 +28,7 @@ const LanguageSelector = ({ language, setLanguage }: Props) => {
           ))}
         </Dropdown>
       )}
-      <span>▼</span>
+      <div>▼</div>
     </Selector>
   );
 };
@@ -40,10 +40,13 @@ const Selector = styled.div`
 
   display: flex;
   position: relative;
+  color: ${({ theme }) => theme.palette.common.white};
 
-  color: ${({ theme }) => theme.palette.common.black};
   img {
     width: 28px;
+  }
+  span {
+    color: ${({ theme }) => theme.palette.common.black};
   }
 `;
 

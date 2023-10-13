@@ -18,8 +18,8 @@ const clampBuilder = (minWidthPx: number, maxWidthPx: number, minFontSize: numbe
 // clampBuilder( 360, 840, 1, 3.5 ) -> "clamp( 1rem, -0.875rem + 8.333vw, 3.5rem )"
 
 export const defase = {
-  inPX: "30px",
-  inNumber: 30,
+  inPX: "40px",
+  inNumber: 40,
 };
 
 const GlobalStyles = createGlobalStyle`
@@ -33,7 +33,7 @@ const GlobalStyles = createGlobalStyle`
   --fs-p1: ${clampBuilder(390, 1366, 1.1, 1.55)};
   --fs-p2: ${clampBuilder(390, 1366, 3.5, 5.15)};
 
-  --header-hg-desktop: min(13vh, 85px);
+  --header-hg-desktop: min(13vh, 55px);
   --header-defase-desktop: ${defase.inPX};
 
   --header-hg-mobile: 8vh;

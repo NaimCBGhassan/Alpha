@@ -48,7 +48,7 @@ const StyledContact = styled.section`
     flex-direction: row;
     padding: inherit;
     &#contact {
-      padding: var(--header-hg-desktop) 8vw 4vh 8vw;
+      padding: 15vh 8vw 4vh 8vw;
     }
   }
 `;

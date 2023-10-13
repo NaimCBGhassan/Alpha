@@ -36,3 +36,16 @@ img {
 input {
   border: none;
 }
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #252440;
+  border-radius: 5px;
+}
