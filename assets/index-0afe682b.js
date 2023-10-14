@@ -123,10 +123,10 @@ Valid keys: `+JSON.stringify(Object.keys(T),null,"  "));var Te=I(Y,J,B,Z,V+"."+J
     stroke: ${({theme:e})=>e.palette.primary.contrastText};
     fill: ${({theme:e})=>e.palette.primary.contrastText};
   }
-`,ah=({setModal:e})=>x.jsx(sh,{onClick:close,children:Fs.map((t,n)=>x.jsx(rh,{icon:t.icon,title:t.title,body:t.body,bgImage:t.bgImage,index:n,setModal:e},n))}),sh=D.div`
+`,ah=({setModal:e})=>x.jsx(sh,{children:Fs.map((t,n)=>x.jsx(rh,{icon:t.icon,title:t.title,body:t.body,bgImage:t.bgImage,index:n,setModal:e},n))}),sh=D.div`
   display: flex;
   height: 100%;
-`,uh=({data:e,setModal:t})=>{const{bgImage:n,body:r,icon:o,title:i}=e;return x.jsx(ch,{onClick:()=>t(0),children:x.jsx(dh,{$bgImage:n,children:x.jsxs("div",{children:[x.jsxs(fh,{children:[o,i]}),x.jsx(ph,{children:r})]})})})},ch=D.article`
+`,uh=({data:e,setModal:t})=>{const{bgImage:n,body:r,icon:o,title:i}=e;return x.jsx(ch,{onClick:l=>{l.stopPropagation(),t(0)},children:x.jsx(dh,{$bgImage:n,children:x.jsxs("div",{children:[x.jsxs(fh,{children:[o,i]}),x.jsx(ph,{children:r})]})})})},ch=D.article`
   position: fixed;
   top: 0;
   bottom: 0;
