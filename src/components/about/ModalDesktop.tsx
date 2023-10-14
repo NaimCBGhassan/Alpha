@@ -11,7 +11,12 @@ interface Props {
 const ModalDesktop = ({ data, setModal }: Props) => {
   const { bgImage, body, icon, title } = data;
   return (
-    <ModalContainer onClick={() => setModal(0)}>
+    <ModalContainer
+      onClick={(e) => {
+        e.stopPropagation();
+        setModal(0);
+      }}
+    >
       <CardContainer $bgImage={bgImage}>
         <div>
           <Title>

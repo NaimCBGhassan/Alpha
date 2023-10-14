@@ -8,7 +8,7 @@ interface Props {
 
 const AboutDesktop = ({ setModal }: Props) => {
   return (
-    <CardContainer onClick={close}>
+    <CardContainer>
       {data.map((el, index) => (
         <CardDesktop
           key={index}
