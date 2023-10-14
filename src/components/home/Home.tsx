@@ -50,6 +50,8 @@ const StyledHome = styled.section`
   text-align: center;
   color: ${({ theme }) => theme.palette.secondary.contrastText};
 
+  position: relative;
+
   background-image: url("heroImage.jpg");
   background-repeat: no-repeat;
   background-size: cover;

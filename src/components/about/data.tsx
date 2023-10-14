@@ -7,19 +7,19 @@ const data = [
     icon: <MisionIcon />,
     title: "MISION",
     body: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit molestias quia error repudiandae ut expedita cum, eum molestiae illo soluta? Ex accusantium nobis",
-    bgImage: "AboutMision.jpg",
+    bgImage: "aboutmision.jpg",
   },
   {
     icon: <VisionIcon />,
     title: "VISION",
     body: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit molestias quia error repudiandae ut expedita cum, eum molestiae illo soluta? Ex accusantium nobis",
-    bgImage: "AboutVision.jpg",
+    bgImage: "aboutvision.jpg",
   },
   {
     icon: <ValuesIcon />,
     title: "VALORES",
     body: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit molestias quia error repudiandae ut expedita cum, eum molestiae illo soluta? Ex accusantium nobis",
-    bgImage: "AboutValues.jpg",
+    bgImage: "aboutvalues.jpg",
   },
 ];
 
