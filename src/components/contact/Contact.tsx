@@ -108,10 +108,9 @@ const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
 
-  background-color: ${({ theme }) => theme.palette.primary.main};
+  background-color: #c2c0c880;
 
-  border: solid 2px;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
 
   border-radius: 10px;
 
@@ -140,11 +139,9 @@ const ContactInfo = styled.div`
 const Icons = styled.div`
   display: flex;
   justify-content: center;
-
-  background-color: ${({ theme }) => theme.palette.primary.main};
+  background-color: #c2c0c880;
 
   gap: 1.5rem;
-  border: solid 2px;
   padding: 1rem;
 
   border-radius: 10px;

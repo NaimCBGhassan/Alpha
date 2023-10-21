@@ -1,25 +1,26 @@
 import MisionIcon from "../../assets/about/MisionIcon";
 import VisionIcon from "../../assets/about/VisionIcon";
 import ValuesIcon from "../../assets/about/ValuesIcon";
+import { Language } from "../../context/language/languageData";
 
-const data = [
+const data = ({ mission, vision, values }: Language["about"]) => [
   {
     icon: <MisionIcon />,
-    title: "MISION",
-    body: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit molestias quia error repudiandae ut expedita cum, eum molestiae illo soluta? Ex accusantium nobis",
-    bgImage: "aboutmision.jpg",
+    title: mission.title,
+    body: mission.text,
+    bgImage: "aboutmision.webp",
   },
   {
     icon: <VisionIcon />,
-    title: "VISION",
-    body: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit molestias quia error repudiandae ut expedita cum, eum molestiae illo soluta? Ex accusantium nobis",
-    bgImage: "aboutvision.jpg",
+    title: vision.title,
+    body: vision.text,
+    bgImage: "aboutvision.webp",
   },
   {
     icon: <ValuesIcon />,
-    title: "VALORES",
-    body: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit molestias quia error repudiandae ut expedita cum, eum molestiae illo soluta? Ex accusantium nobis",
-    bgImage: "aboutvalues.jpg",
+    title: values.title,
+    body: values.text,
+    bgImage: "aboutvalues.webp",
   },
 ];
 

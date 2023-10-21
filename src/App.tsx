@@ -8,6 +8,7 @@ import "./App.css";
 import { About, Contact, Header, Home, Services } from "./components/index.ts";
 import { EnabledLanguages, LaguageProvider } from "./context/language/LanguageProvider.tsx";
 import GlobalStyles from "./GlobalStyles.tsx";
+import WspButton from "./components/WspButton.tsx";
 
 const initialState: ThemeModes = { isLight: true };
 
@@ -25,12 +26,13 @@ function App() {
               language={language}
               setLanguage={setLanguage}
             />
-            <Home />
+            <Home language={language} setLanguage={setLanguage} />
             <Services />
             <About />
             <Contact />
           </DefaultStyles>
         </LaguageProvider>
+        <WspButton />
       </ThemeProvider>
     </>
   );
@@ -42,7 +44,7 @@ const DefaultStyles = styled.main`
   color: ${(props) => props.theme.palette.primary.contrastText};
   background-color: ${(props) => props.theme.palette.primary.main};
 
-  & > *:not(header) {
+  & > *:not(header):not(.wsp) {
     min-height: 100vh;
     padding: var(--header-hg-desktop) 8vw;
 
@@ -51,5 +53,9 @@ const DefaultStyles = styled.main`
       padding-top: var(--header-hg-desktop);
       position: relative;
     }
+  }
+
+  & > #services {
+    min-height: auto;
   }
 `;

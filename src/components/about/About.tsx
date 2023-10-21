@@ -6,14 +6,19 @@ import { useState } from "react";
 
 import data from "./data";
 import ModalDesktop from "./ModalDesktop";
+import { useLanguageContext } from "../../context/language/useLanguage";
 
 const About = () => {
   const [modal, setModal] = useState<number>(0);
   const isTabletOrMobile = !useMediaQuery({ query: "(min-width: 768px)" });
+  const text = useLanguageContext();
+
+  const dataResult = data(text.about);
+
   return (
     <StyledAbout id="about" $modal={modal}>
       {isTabletOrMobile ? <AboutMobile /> : <AboutDesktop setModal={setModal} />}
-      {modal !== 0 && <ModalDesktop data={data[modal - 1]} setModal={setModal} />}
+      {modal !== 0 && <ModalDesktop data={dataResult[modal - 1]} setModal={setModal} />}
     </StyledAbout>
   );
 };

@@ -1,10 +1,15 @@
 /* import { Dispatch, SetStateAction } from "react"; */
 import styled from "styled-components";
-import data from "./data";
+
 import { Dispatch, SetStateAction } from "react";
 
 interface Props {
-  data: (typeof data)[0];
+  data: {
+    icon: JSX.Element;
+    title: string;
+    body: string;
+    bgImage: string;
+  };
   setModal: Dispatch<SetStateAction<number>>;
 }
 

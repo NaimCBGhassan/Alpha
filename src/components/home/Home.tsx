@@ -5,8 +5,15 @@ import { useLanguageContext } from "../../context/language/useLanguage";
 import WorldIcon from "../../assets/home/WorldIcon";
 import FinancingIcon from "../../assets/home/FinancingIcon";
 import { useMediaQuery } from "react-responsive";
+import LanguageSelector from "../navbar/LanguageSelector";
+import { EnabledLanguages } from "../../context/language/LanguageProvider";
 
-const Home = () => {
+interface Props {
+  setLanguage: React.Dispatch<React.SetStateAction<EnabledLanguages>>;
+  language: EnabledLanguages;
+}
+
+const Home = ({ language, setLanguage }: Props) => {
   const text = useLanguageContext();
   const isTabletOrMobile = !useMediaQuery({ query: "(min-width: 768px)" });
 
@@ -20,6 +27,7 @@ const Home = () => {
                 <p>{info.icon}</p>
               </a>
             ))}
+            <LanguageSelector language={language} setLanguage={setLanguage} />
           </MediaContainer>
         )}
         <Title>{text.home.title}</Title>
@@ -52,7 +60,7 @@ const StyledHome = styled.section`
 
   position: relative;
 
-  background-image: url("heroImage.jpg");
+  background-image: url("heroimage.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -135,7 +143,6 @@ const IconContainer = styled.div`
 `;
 
 const MediaContainer = styled.div`
-  color: ${({ theme }) => theme.palette.secondary.main};
   display: flex;
   justify-content: center;
   align-items: center;

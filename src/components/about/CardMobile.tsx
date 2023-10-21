@@ -24,10 +24,13 @@ const CardMobile = ({ icon, title, body, bgImage }: Props) => {
 export default CardMobile;
 
 const CardContainer = styled.article<{ $bgImage: string }>`
-  height: clamp(300px, 60vw, 400px);
+  height: clamp(350px, 60vw, 400px);
   background: ${({ $bgImage }) => `url(${$bgImage})`} center no-repeat;
   background-size: cover;
   & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     height: 100%;
     padding: 2rem 1.5rem;
     color: ${({ theme }) => theme.palette.primary.main};

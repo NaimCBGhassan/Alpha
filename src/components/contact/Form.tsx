@@ -4,10 +4,13 @@ import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { useLanguageContext } from "../../context/language/useLanguage";
 
 const Form = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const form = useRef<any>();
+
+  const text = useLanguageContext();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,35 +21,35 @@ const Form = () => {
     emailjs.sendForm("service_x2idm9b", "template_vxx1o1m", form.current, "zRK93slStTGd_Hni9").then(
       () => {
         setIsLoading(false);
-        toast.success("La consulta fue envidad de forma correcta");
+        toast.success(text.contact.form.toastSucces);
       },
       () => {
         setIsLoading(false);
-        toast.error("La consulta no pudo ser enviada");
+        toast.error(text.contact.form.toastError);
       }
     );
   };
   return (
     <StyledForm ref={form} onSubmit={sendEmail}>
       <ToastContainer position="bottom-center" autoClose={1000} />
-      <h4>Hace Tu consulta</h4>
+      <h4>{text.contact.form.title}</h4>
       <InputContainer>
-        <input id="full_name" type="text" placeholder="Nombre y Apellido" name="name" />
+        <input id="full_name" type="text" placeholder={text.contact.form.name} name="name" required />
       </InputContainer>
       <InputContainer>
-        <input id="full_name" type="text" placeholder="Empresa (Opcional)" name="company" />
+        <input id="full_name" type="text" placeholder={text.contact.form.enterprise} name="company" />
       </InputContainer>{" "}
       <InputContainer>
-        <input id="full_name" type="email" placeholder="Email" name="email" />
+        <input id="full_name" type="email" placeholder={text.contact.form.email} name="email" required />
       </InputContainer>{" "}
       <InputContainer>
-        <input id="full_name" type="text" placeholder="Area" name="area" />
+        <input id="full_name" type="text" placeholder={text.contact.form.area} name="area" />
       </InputContainer>
       <InputContainer>
-        <textarea cols={30} rows={5} placeholder="Tu mensaje" name="message"></textarea>
+        <textarea cols={30} rows={5} placeholder={text.contact.form.message} name="message" required />
       </InputContainer>
       <Button type="submit" $isLoading={isLoading} disabled={isLoading}>
-        {isLoading ? <AiOutlineLoading3Quarters /> : "Enviar"}
+        {isLoading ? <AiOutlineLoading3Quarters /> : text.contact.form.submit}
       </Button>
     </StyledForm>
   );

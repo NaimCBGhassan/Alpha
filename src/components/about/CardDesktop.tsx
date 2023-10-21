@@ -9,11 +9,13 @@ interface Props {
   setModal: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const CardDesktop = ({ icon, bgImage, index, setModal }: Props) => {
+const CardDesktop = ({ title, icon, bgImage, index, setModal }: Props) => {
   return (
     <Card onClick={() => setModal(index + 1)}>
       <Image $bgImage={bgImage}>
-        <div></div>
+        <div>
+          <h3>{title}</h3>
+        </div>
       </Image>
       <IconContainer>{icon}</IconContainer>
     </Card>
@@ -46,10 +48,19 @@ const Image = styled.div<{ $bgImage: string }>`
   height: 50%;
 
   & > div {
+    display: flex;
+    align-items: center;
     height: 100%;
-    padding: 2rem 1.5rem;
-    color: ${({ theme }) => theme.palette.primary.main};
     background-color: #00000090;
+    color: ${({ theme }) => theme.palette.primary.main};
+
+    h3 {
+      text-align: center;
+      font-size: var(--fs-h3);
+      font-weight: bold;
+      width: 100%;
+      background-color: #252440dd;
+    }
   }
 `;
 

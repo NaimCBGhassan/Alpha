@@ -24,6 +24,20 @@ export interface Language {
       content: string;
     };
   };
+  about: {
+    mission: {
+      title: string;
+      text: string;
+    };
+    vision: {
+      title: string;
+      text: string;
+    };
+    values: {
+      title: string;
+      text: string;
+    };
+  };
   contact: {
     contactInfo: {
       title: string;
@@ -36,6 +50,9 @@ export interface Language {
       email: string;
       area: string;
       message: string;
+      submit: string;
+      toastSucces: string;
+      toastError: string;
     };
   };
 }
@@ -71,6 +88,20 @@ const languageData: LanguageData = {
         content: "Gestionamos cuentas con tus proveedores dando soporte financier.",
       },
     },
+    about: {
+      mission: {
+        title: "MISIÓN",
+        text: "Brindar soluciones logísticas y financieras personalizadas, asegurando un servicio profesional y humano, transmitiendo solidez, confianza y compromiso con nuestros clientes. Siendo nexo para generar nuevas oportunidades comerciales.",
+      },
+      vision: {
+        title: "VISIÓN",
+        text: "Ser el soporte logístico y plataforma de expansión mejor posicionado para las empresas que buscan afianzar y acrecentar su mercado.",
+      },
+      values: {
+        title: "VALORES",
+        text: "Transparencia, confianza, seguridad, expedición, organicidad, trabajo, creatividad, prudencia, templanza.",
+      },
+    },
     contact: {
       contactInfo: [
         {
@@ -78,17 +109,20 @@ const languageData: LanguageData = {
           content: ["Lunes a viernes de 8hs a 18hs"],
         },
         {
-          title: "Teléfono/Email",
+          title: "Contacto",
           content: ["+59892125764", "info@handel.com"],
         },
       ],
       form: {
         title: "Hacé tu consulta",
-        name: "Nombre y Apellido",
-        enterprise: "Empresa(Opcional)",
-        email: "Email",
+        name: "Nombre y Apellido*",
+        enterprise: "Empresa",
+        email: "Email*",
         area: "Area",
-        message: "Tu Mensaje",
+        message: "Tu Mensaje*",
+        submit: "Enviar",
+        toastError: "La consulta no pudo ser enviada",
+        toastSucces: "La consulta fue envidad de forma correcta",
       },
     },
   },
@@ -118,6 +152,20 @@ const languageData: LanguageData = {
         content: "We manage accounts with your suppliers providing financial support",
       },
     },
+    about: {
+      mission: {
+        title: "MISSION",
+        text: "Provide personalized logistical and financial solutions, ensuring a professional and human service, transmitting solidity, trust and commitment to our clients. Being a link to generate new business opportunities.",
+      },
+      vision: {
+        title: "VISION",
+        text: "To be the best positioned logistics support and expansion platform for companies seeking to strengthen and increase their market.",
+      },
+      values: {
+        title: "VALUES",
+        text: "Transparency, trust, security, dispatch, organicity, work, creativity, prudence, temperance.",
+      },
+    },
     contact: {
       contactInfo: [
         {
@@ -125,17 +173,20 @@ const languageData: LanguageData = {
           content: ["Monday to Friday from 8am to 6pm"],
         },
         {
-          title: "Phone/Email",
+          title: "Contact",
           content: ["+59892125764", "info@handel.com"],
         },
       ],
       form: {
         title: "Make your inquiry",
-        name: "First and Last Name",
-        enterprise: "Enterprise(Optional)",
-        email: "Email",
+        name: "First and Last Name*",
+        enterprise: "Enterprise",
+        email: "Email*",
         area: "Area",
-        message: "Your Message",
+        message: "Your Message*",
+        submit: "Send",
+        toastError: "The query could not be sent",
+        toastSucces: "The query was sent correctly",
       },
     },
   },
