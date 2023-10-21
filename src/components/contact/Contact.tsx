@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { SiGmail, SiLinkedin } from "react-icons/si";
+import { FaHourglassEnd, FaPhoneAlt } from "react-icons/fa";
 import Form from "./Form";
 import { useLanguageContext } from "../../context/language/useLanguage";
 
@@ -9,11 +10,17 @@ const Contact = () => {
     <StyledContact id="contact">
       <InfoContainer>
         <ContactInfo>
-          <h4>{text.contact.contactInfo[0].title}</h4>
+          <h4>
+            <FaHourglassEnd className="clock" />
+            {text.contact.contactInfo[0].title}
+          </h4>
           <p>{text.contact.contactInfo[0].content[0]}</p>
         </ContactInfo>
         <ContactInfo>
-          <h4>{text.contact.contactInfo[1].title}</h4>
+          <h4>
+            <FaPhoneAlt className="phone" />
+            {text.contact.contactInfo[1].title}
+          </h4>
           <p>{text.contact.contactInfo[1].content[0]}</p>
           <p>{text.contact.contactInfo[1].content[1]}</p>
         </ContactInfo>
@@ -55,7 +62,7 @@ const StyledContact = styled.section`
 
 const InfoContainer = styled.div`
   height: 100%;
-  color: ${({ theme }) => theme.palette.common.white};
+  color: inherit;
   text-align: center;
   margin-bottom: 1rem;
 
@@ -70,11 +77,60 @@ const InfoContainer = styled.div`
   }
 `;
 
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const shake = keyframes`
+  0% {
+   
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    
+  }
+`;
+
 const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
+
+  background-color: ${({ theme }) => theme.palette.primary.main};
+
+  border: solid 2px;
+  padding: 1rem;
+
+  border-radius: 10px;
+
   h4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: var(--fs-h4);
+    svg {
+      margin-right: 1rem;
+    }
+    svg.clock {
+      width: calc(var(--fs-h4) - 12px);
+      animation: ${spin} 5s linear infinite;
+    }
+    svg.phone {
+      width: calc(var(--fs-h4) - 8px);
+      animation: ${shake} 0.8s ease infinite;
+    }
   }
   p {
     font-size: var(--fs-p1);
@@ -84,7 +140,19 @@ const ContactInfo = styled.div`
 const Icons = styled.div`
   display: flex;
   justify-content: center;
+
+  background-color: ${({ theme }) => theme.palette.primary.main};
+
   gap: 1.5rem;
+  border: solid 2px;
+  padding: 1rem;
+
+  border-radius: 10px;
+
+  @media screen and (min-width: 768px) {
+    color: inherit;
+    gap: 2rem;
+  }
 `;
 
 const size = "2.5rem";
