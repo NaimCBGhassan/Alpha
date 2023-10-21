@@ -1,24 +1,34 @@
 import styled from "styled-components";
 import { TfiArrowCircleLeft, TfiArrowCircleRight } from "react-icons/tfi";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import Card from "./CardDesktop";
 import { useLanguageContext } from "../../context/language/useLanguage";
 
 const CarouselDesktop = () => {
   const [selected, setSelected] = useState<1 | 2 | 3>(1);
+  const isDisabled = useRef(false);
   const text = useLanguageContext();
 
   const handlerDecrement = () => {
+    if (isDisabled.current) return;
+    setTimeout(() => (isDisabled.current = false), 400);
+
     if (selected === 1) setSelected(3);
     if (selected === 2) setSelected(1);
     if (selected === 3) setSelected(2);
+    isDisabled.current = true;
   };
 
   const handlerIncrement = () => {
+    if (isDisabled.current) return;
+    setTimeout(() => (isDisabled.current = false), 400);
+
     if (selected === 1) setSelected(2);
     if (selected === 2) setSelected(3);
     if (selected === 3) setSelected(1);
+
+    isDisabled.current = true;
   };
 
   return (
@@ -65,7 +75,7 @@ const ArrowContainer = styled.div`
   color: ${({ theme }) => theme.palette.primary.main};
 
   svg:hover {
-    transform: scale(1.3);
+    transform: scale(1.1);
     color: ${({ theme }) => theme.palette.primary.contrastText};
 
     cursor: pointer;

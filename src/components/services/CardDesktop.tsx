@@ -33,7 +33,7 @@ const StyledCard = styled.article<{ selected: Props["selected"] }>`
 
   border-radius: 0.5rem;
   padding: 1.5rem 1.5rem;
-  transition: transform 0.5s linear;
+  transition: transform 0.35s linear;
 
   &.element_1 {
     transform: ${({ selected }) => {

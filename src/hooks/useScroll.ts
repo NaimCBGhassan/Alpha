@@ -23,8 +23,8 @@ const getSnapshot = (): number => {
   if (placeOfScrollInViewport < 0.25) return 2;
   if (placeOfScrollInViewport < 0.5 && isInTopOfSection) return 3;
   if (placeOfScrollInViewport < 0.5) return 4;
-  if (placeOfScrollInViewport < 0.75 && isInTopOfSection) return 5;
-  if (placeOfScrollInViewport < 0.75) return 6;
+  if (placeOfScrollInViewport < 0.73 && isInTopOfSection) return 5;
+  if (placeOfScrollInViewport < 0.73) return 6;
   if (placeOfScrollInViewport < 1 && isInTopOfSection) return 7;
   if (placeOfScrollInViewport <= 1) return 8;
   return 1;

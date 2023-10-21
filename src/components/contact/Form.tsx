@@ -64,6 +64,10 @@ const StyledForm = styled.form`
   border-radius: 0.5rem;
   padding: 1.5rem;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   @media screen and (min-width: 768px) {
     width: 50%;
     padding: 2.5rem 2.5rem;
@@ -79,7 +83,8 @@ const InputContainer = styled.div`
   textarea {
     font-size: 2.5vh;
     padding: 0.4rem 0.8rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
+    resize: none;
   }
 `;
 

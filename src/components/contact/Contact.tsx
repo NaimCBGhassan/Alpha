@@ -61,7 +61,7 @@ const InfoContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: center;
   gap: 1.5rem;
 
   @media screen and (min-width: 768px) {
