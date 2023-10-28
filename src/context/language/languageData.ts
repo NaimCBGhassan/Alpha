@@ -110,7 +110,7 @@ const languageData: LanguageData = {
         },
         {
           title: "Contacto",
-          content: ["+59892125764", "info@handel.com"],
+          content: ["", "info@handlegroup.com"],
         },
       ],
       form: {
@@ -174,7 +174,7 @@ const languageData: LanguageData = {
         },
         {
           title: "Contact",
-          content: ["+59892125764", "info@handel.com"],
+          content: ["", "info@handlegroup.com"],
         },
       ],
       form: {

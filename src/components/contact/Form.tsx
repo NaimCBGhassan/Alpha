@@ -18,7 +18,7 @@ const Form = () => {
     e.preventDefault();
     setIsLoading(true);
     if (!form.current) return;
-    emailjs.sendForm("service_x2idm9b", "template_vxx1o1m", form.current, "zRK93slStTGd_Hni9").then(
+    emailjs.sendForm("service_bhcpalg", "template_yeupvvj", form.current, "eoWi189DUHjMcqhuy").then(
       () => {
         setIsLoading(false);
         toast.success(text.contact.form.toastSucces);
