@@ -85,7 +85,7 @@ const languageData: LanguageData = {
       },
       card3: {
         title: "Servicios de Financiación",
-        content: "Gestionamos cuentas con tus proveedores dando soporte financier.",
+        content: "Gestionamos cuentas con tus proveedores dando soporte financiero.",
       },
     },
     about: {
