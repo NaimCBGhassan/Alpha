@@ -141,29 +141,29 @@ const languageData: LanguageData = {
     services: {
       card1: {
         title: "Commercial Intermediaries",
-        content: "We manage the relationship with your customers and actively intervene in the purchasing process.",
+        content: "We manage the relationship with your clients and actively participate in the purchasing process.",
       },
       card2: {
         title: "International Logistics",
-        content: "We encourage networking between our clients and suppliers to create positive synergy.",
+        content: "we foster networking among our clients and suppliers to create greater positive synergy.",
       },
       card3: {
         title: "Financing Services",
-        content: "We manage accounts with your suppliers providing financial support",
+        content: "we manage supplier's accounts and provide financial support.",
       },
     },
     about: {
       mission: {
         title: "MISSION",
-        text: "Provide personalized logistical and financial solutions, ensuring a professional and human service, transmitting solidity, trust and commitment to our clients. Being a link to generate new business opportunities.",
+        text: "we provide tailor-made logistic and financial solutions and guarantee a professional, humane job while transmitting strength, confidence, and commitment to our clientes. We are a bridge between you and new commercial opportunities.",
       },
       vision: {
         title: "VISION",
-        text: "To be the best positioned logistics support and expansion platform for companies seeking to strengthen and increase their market.",
+        text: "Being the technical support and expanding platform with the best position for those companies seeking developing their market.",
       },
       values: {
         title: "VALUES",
-        text: "Transparency, trust, security, dispatch, organicity, work, creativity, prudence, temperance.",
+        text: "Transparency, confidence, security, proactivity, organization, hard work, creativity, prudence, moderation.",
       },
     },
     contact: {
@@ -178,7 +178,7 @@ const languageData: LanguageData = {
         },
       ],
       form: {
-        title: "Make your inquiry",
+        title: "Get in touch with us",
         name: "First and Last Name*",
         enterprise: "Enterprise",
         email: "Email*",

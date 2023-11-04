@@ -188,7 +188,7 @@ const CardInfo = [
   },
   {
     name: "WhatsApp",
-    contact: "https://api.whatsapp.com/send?phone=54341322798*4",
+    contact: "https://api.whatsapp.com/send?phone=--------",
     icon: <SiWhatsapp size={size} />,
   },
 ];
