@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 
 const WspButton = () => {
   return (
-    <a href="https://api.whatsapp.com/send?phone=--------" target="_blank " rel="noopener noreferrer">
+    <a href="https://api.whatsapp.com/send?phone=+59896884422" target="_blank " rel="noopener noreferrer">
       <Container className="wsp">
         <img src="wsp.png" />
       </Container>

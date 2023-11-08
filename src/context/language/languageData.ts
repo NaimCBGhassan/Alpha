@@ -174,7 +174,7 @@ const languageData: LanguageData = {
         },
         {
           title: "Contact",
-          content: ["", "info@handlegroup.com"],
+          content: ["+59896884422", "info@handlegroup.com"],
         },
       ],
       form: {
