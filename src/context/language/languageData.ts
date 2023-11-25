@@ -110,7 +110,7 @@ const languageData: LanguageData = {
         },
         {
           title: "Contacto",
-          content: ["", "info@handlegroup.com"],
+          content: ["", "info@handlegroup.org"],
         },
       ],
       form: {
@@ -145,11 +145,11 @@ const languageData: LanguageData = {
       },
       card2: {
         title: "International Logistics",
-        content: "we foster networking among our clients and suppliers to create greater positive synergy.",
+        content: "We foster networking among our clients and suppliers to create greater positive synergy.",
       },
       card3: {
         title: "Financing Services",
-        content: "we manage supplier's accounts and provide financial support.",
+        content: "We manage supplier's accounts and provide financial support.",
       },
     },
     about: {
@@ -174,7 +174,7 @@ const languageData: LanguageData = {
         },
         {
           title: "Contact",
-          content: ["59896884422", "info@handlegroup.com"],
+          content: ["59896884422", "info@handlegroup.org"],
         },
       ],
       form: {
