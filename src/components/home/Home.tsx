@@ -154,19 +154,17 @@ const size = "2.5rem";
 const CardInfo = [
   {
     name: "LinkedIn",
-    contact: "https://www.linkedin.com/in/naimchaya",
+    contact: "https://www.linkedin.com/company/100179593/admin/feed/posts/",
     icon: <SiLinkedin size={size} />,
   },
   {
     name: "Email",
-    contact:
-      "mailto:naimchaya.dev@gmail.com?subject=Contact%20From%20Porfolio&body=Hi!%20I%20visit%20you%20from%20your%20personal%20porfolio",
+    contact: "mailto:info@handlegroup.org",
     icon: <SiGmail size={size} />,
   },
   {
     name: "WhatsApp",
-    contact:
-      "https://api.whatsapp.com/send?phone=543413227984&text=Hi!%20I%20visit%20you%20from%20your%20personal%20porfolio",
+    contact: "https://api.whatsapp.com/send?phone=59896884422",
     icon: <SiWhatsapp size={size} />,
   },
 ];
